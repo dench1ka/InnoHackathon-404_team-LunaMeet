@@ -90,7 +90,7 @@ cd InnoHackathon-404_team-LunaMeet
 📞 Контакты
 
 Если у вас есть вопросы или предложения, пишите:
-📧 Email: ваш.email@example.com
+📧 Email: 1iunameetup1@gmail.com
 🌐 Проект на GitHub: LunaMeet
 
 Спасибо, что выбрали LunaMeet! 🚀
