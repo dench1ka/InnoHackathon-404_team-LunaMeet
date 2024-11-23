@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>События</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <a href="https://github.com/dench1ka/InnoHackathon-404_team-LunaMeet" class="logo">Logo</a>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Поиск событий...">
+      <button id="searchButton" class="btn">Найти</button>
+    </div>
+    <button id="loginButton" class="btn">Вход</button>
+  </header>
+
+  <main>
+    <section class="category">
+      <h2>Category</h2>
+      <div id="eventsContainer" class="cards">
+        <!-- Карточки событий будут добавляться динамически через JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Модальное окно для входа -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2>Вход</h2>
+      <form>
+        <input type="email" placeholder="Введите email" required>
+        <input type="password" placeholder="Введите пароль" required>
+        <button type="submit" class="btn gray-btn">Войти</button>
+      </form>
+      <p>Нет аккаунта? <a href="#" id="registerLink">Зарегистрироваться</a></p>
+    </div>
+  </div>
+
+  <!-- Модальное окно для регистрации -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span id="closeRegisterModal" class="close">&times;</span>
+      <h2>Регистрация</h2>
+      <form>
+        <input type="email" placeholder="Введите email" required>
+        <input type="password" placeholder="Придумайте пароль" required>
+        <button type="submit" class="btn gray-btn">Зарегистрироваться</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Модальное окно карточки события -->
+  <div class="event-card" onclick="openEvent()">
+    <div class="modal-content">
+      <span id="closeEventModal" class="close">&times;</span>
+      <h2 id="eventTitle"></h2>
+      <p id="eventDate"></p>
+      <p id="eventLocation"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
