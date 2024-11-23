@@ -73,3 +73,9 @@ window.onclick = (event) => {
   if (event.target === registerModal) registerModal.style.display = 'none';
   if (event.target === eventModal) eventModal.style.display = 'none';
 };
+
+
+// Переход на страницу мероприятия
+function openEvent() {
+    window.location.href = 'event.html';
+}

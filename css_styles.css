@@ -1,0 +1,120 @@
+/* Общие стили */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+header input {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Главная страница */
+.event-category h2 {
+    margin: 20px;
+}
+
+.event-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.event-card {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.event-card:hover {
+    transform: scale(1.05);
+}
+
+/* Страница мероприятия */
+.event-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.event-header h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.event-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.image-placeholder {
+    width: 48%;
+    height: 150px;
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+.event-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn-register {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-register:hover {
+    background-color: #555;
+}
+
+.event-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.description, .plan {
+    width: 48%;
+}
+
+.comments {
+    margin-top: 20px;
+}
+
+.comment {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
