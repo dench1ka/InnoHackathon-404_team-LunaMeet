@@ -18,7 +18,7 @@
             </div>
             <div class="event-info">
                 <p class="event-date">22.11.2024 - 23.11.2024</p>
-                <button class="btn-register">Зарегистрироваться</button>
+                <button class="btn-register">Принять участие</button>
             </div>
         </div>
         <div class="event-details">
@@ -48,5 +48,48 @@
             </div>
         </div>
     </div>
+
+    <!-- Модальное окно с подтверждением -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <h2>Вы хотите принять участие в этом мероприятии?</h2>
+            <div class="modal-buttons">
+                <button id="confirmYes" class="btn-yes">Да</button>
+                <button id="confirmNo" class="btn-no">Нет</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        // Получаем элементы
+        const registerButton = document.querySelector('.btn-register');
+        const confirmModal = document.getElementById('confirmModal');
+        const confirmYes = document.getElementById('confirmYes');
+        const confirmNo = document.getElementById('confirmNo');
+
+        // Открытие модального окна
+        registerButton.onclick = () => {
+            confirmModal.style.display = 'flex';
+        };
+
+        // Обработка нажатия кнопки "Да"
+        confirmYes.onclick = () => {
+            alert('Вы зарегистрированы на мероприятие!');
+            confirmModal.style.display = 'none';
+        };
+
+        // Обработка нажатия кнопки "Нет"
+        confirmNo.onclick = () => {
+            confirmModal.style.display = 'none';
+        };
+
+        // Закрытие модального окна при клике вне его
+        window.onclick = (event) => {
+            if (event.target === confirmModal) {
+                confirmModal.style.display = 'none';
+            }
+        };
+    </script>
 </body>
 </html>

@@ -79,3 +79,24 @@ window.onclick = (event) => {
 function openEvent() {
     window.location.href = 'event.html';
 }
+
+// Получаем элементы
+const registerButton = document.querySelector('.btn-register');
+const closeRegisterModal = document.getElementById('closeRegisterModal');
+
+// Открытие модального окна
+registerButton.onclick = () => {
+  registerModal.style.display = 'flex';
+};
+
+// Закрытие модального окна
+closeRegisterModal.onclick = () => {
+  registerModal.style.display = 'none';
+};
+
+// Закрытие модального окна при клике вне его
+window.onclick = (event) => {
+  if (event.target === registerModal) {
+    registerModal.style.display = 'none';
+  }
+};
