@@ -1,0 +1,135 @@
+/* Общие стили для body и шапки */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header img {
+  height: 40px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin-left: 20px;
+  max-width: 500px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+
+.search-bar button {
+  padding: 8px;
+  background-color: #000; /* Черный фон кнопки */
+  color: #fff; /* Белый цвет иконки */
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-bar button svg {
+  width: 16px;
+  height: 16px;
+}
+
+header .actions {
+  display: flex;
+  gap: 10px;
+}
+
+header .actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+header .actions .create-btn {
+  background-color: black;
+  color: white;
+}
+
+.container {
+  padding: 20px;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+/* Карточки */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Автозаполнение карточек */
+  gap: 20px; /* Расстояние между карточками */
+  margin-top: 10px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-container {
+  width: 100%;
+  height: 120px; /* Высота блока изображения */
+  background-color: #ddd; /* Цвет фона по умолчанию */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden; /* Обрезка изображения по границам */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Сохранение пропорций изображения */
+}
+
+.text-container h3 {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.text-container p {
+  margin: 5px 0;
+  color: gray;
+  font-size: 14px;
+}
+
+header .create-btn {
+  margin-right: 50px; /* Сместить кнопку "Создать объявление" влево */
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

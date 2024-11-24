@@ -37,3 +37,6 @@ def register(request: HttpRequest):
             return JsonResponse({"error": "An unexpected error occurred."}, status=500)
 
     return JsonResponse({"error": "Invalid request method."}, status=405)
+
+def main_page(request):
+    return render(request, 'main_page.html')

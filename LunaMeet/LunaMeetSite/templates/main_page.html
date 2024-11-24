@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ЛунаMeet</title>
+  <link rel="stylesheet" href='{% static "css/main_page.css" %}' />
+</head>
+<body>
+  <header>
+    <img src='{% static "img/LunaMeet_without_background.png" %}' alt="ЛунаMeet">
+    <div class="search-bar">
+      <input type="text" placeholder="Введите текст для поиска">
+      <button>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="actions">
+      <button class="create-btn">Создать объявление</button>
+      <button>Вход</button>
+    </div>
+  </header>
+  <div class="container">
+    <h2>Category</h2>
+    <div class="cards">
+      <!-- Карточка 1 -->
+      <div class="card">
+        <div class="image-container">
+          <img src="{% static 'img/sample_image.jpg' %}" alt="Card Image">
+        </div>
+        <div class="text-container">
+          <h3>Innowise hackaton</h3>
+          <p>22.11.2024 - 29.11.2024</p>
+          <p>Gomel</p>
+        </div>
+      </div>
+
+      <!-- Карточка 2 -->
+      <div class="card">
+        <div class="image-container">
+          <img src="{% static 'img/sample_image2.jpg' %}" alt="Card Image">
+        </div>
+        <div class="text-container">
+          <h3>Innowise hackaton</h3>
+          <p>22.11.2024 - 29.11.2024</p>
+          <p>Gomel</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>Category</h2>
+    <div class="cards">
+      <!-- Карточка 3 -->
+      <div class="card">
+        <div class="image-container">
+          <img src="{% static 'img/sample_image3.jpg' %}" alt="Card Image">
+        </div>
+        <div class="text-container">
+          <h3>Innowise hackaton</h3>
+          <p>22.11.2024 - 29.11.2024</p>
+          <p>Gomel</p>
+        </div>
+      </div>
+
+      <!-- Карточка 4 -->
+      <div class="card">
+        <div class="image-container">
+          <img src="{% static 'img/sample_image4.jpg' %}" alt="Card Image">
+        </div>
+        <div class="text-container">
+          <h3>Innowise hackaton</h3>
+          <p>22.11.2024 - 29.11.2024</p>
+          <p>Gomel</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -36,10 +36,13 @@ body {
     flex-direction: column;
 }
 .form-container img {
-    width: 150px; /* Задайте размер изображения */
+    display: block; /* Убираем inline-стиль изображения */
+    margin: 0 auto; /* Автоматические отступы по горизонтали */
+    width: 150px; /* Размер изображения */
     height: auto;
     margin-bottom: 20px;
 }
+
 .form-container h2 {
     font-size: 22px;
     margin-bottom: 5px;
@@ -75,14 +78,19 @@ body {
     background-color: #333;
 }
 .form-container p {
-    text-align: left;  /* Выравнивание по левому краю */
-    font-size: 18px;   /* Увеличиваем размер шрифта */
+    text-align: left; /* Выравнивание по левому краю */
+    font-size: 18px; /* Увеличиваем размер шрифта */
     margin-top: 10px;
-}
-.form-container p a {
     color: black;
-    text-decoration: none;
 }
+
+.form-container p a {
+    text-decoration: underline; /* Постоянное подчеркивание только для ссылки */
+    transition: color 0.3s ease; /* Плавный переход цвета */
+    color: black;
+}
+
 .form-container p a:hover {
-    text-decoration: underline;
+    color: blue; /* Цвет ссылки при наведении */
 }
+
