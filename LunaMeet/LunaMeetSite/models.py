@@ -3,6 +3,7 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, Abstra
 
 # Create your models here.
 
+
 class Comments(models.Model):
     event = models.ForeignKey('Event', on_delete=models.CASCADE)
     user = models.ForeignKey('User', on_delete=models.CASCADE)
@@ -49,7 +50,7 @@ class User(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
 
-    organized_events_id = models.ManyToManyField('Event', through='Organizers', related_name='organizers')
+    organized_events_id = models.ManyToManyField('Event', through='Organizers', related_name='organized_event')
     visited_events_id = models.ManyToManyField('Event', through='Visited', related_name='visited_users')
     planed_events_id = models.ManyToManyField('Event', through='Planed', related_name='planed_users')
     commented_events_id = models.ManyToManyField('Event', through='Comments', related_name='commented_users')
@@ -71,7 +72,7 @@ class Event(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=1000)
 
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL)
+    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, blank=True)
     organizers_id = models.ManyToManyField(User, through='Organizers', related_name='organized_events')
     visited_users_id = models.ManyToManyField(User, through='Visited', related_name='visited_events')
     planed_users_id = models.ManyToManyField(User, through='Planed', related_name='planed_events')
