@@ -2,12 +2,13 @@ from django.shortcuts import render
 from django.http import HttpRequest, JsonResponse
 from django.core.exceptions import ValidationError
 from . import models
+from django.views.decorators.csrf import csrf_protect
 
 # Create your views here.
 def show_sign_up(request):
     return render(request, "registration.html")
 
-
+@csrf_protect
 def register(request: HttpRequest):
     if request.method == "POST":
         email = request.POST.get("email")
