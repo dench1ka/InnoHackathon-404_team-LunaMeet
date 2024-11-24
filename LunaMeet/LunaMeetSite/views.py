@@ -8,6 +8,9 @@ from django.views.decorators.csrf import csrf_protect
 def show_sign_up(request):
     return render(request, "registration.html")
 
+def show_sign_in(request):
+    return render(request, "login.html")
+
 @csrf_protect
 def register(request: HttpRequest):
     if request.method == "POST":
