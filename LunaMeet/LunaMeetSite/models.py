@@ -3,6 +3,25 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, Abstra
 
 # Create your models here.
 
+class Comments(models.Model):
+    event = models.ForeignKey('Event', on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
+    text = models.CharField(max_length=500)
+
+
+class Planed(models.Model):
+    event = models.ForeignKey('Event', on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
+
+class Organizers(models.Model):
+    event = models.ForeignKey('Event', on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
+
+
+class Visited(models.Model):
+    event = models.ForeignKey('Event', on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
+    
 
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -66,3 +85,4 @@ class TimeCod(models.Model):
 
     def __str__(self):
         return f"{self.time} : {self.name}"
+
