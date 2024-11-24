@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up Page</title>
+    <link rel="stylesheet" href='{% static "css/registration_page.css" %}' />
+</head>
+<body>
+    <div class="container">
+        <div class="image-section"></div>
+        <div class="form-section">
+            <div class="form-container">
+                <img src='{% static "img/LunaMeet_without_background.png" %}'>
+                <h2>Sign-up</h2>
+                <form action="/submit" method="post">
+                    <input type="email" name="email" placeholder="Email..." required>
+                    <input type="password" name="password" placeholder="Password..." required>
+                    <input type="password" name="confirm_password" placeholder="Confirm..." required>
+                    <input type="text" name="username" placeholder="Username..." required>
+                    <button type="submit">Sign-up</button>
+                </form>
+                <p>Already have an account? <a href="#">Sign-in</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
