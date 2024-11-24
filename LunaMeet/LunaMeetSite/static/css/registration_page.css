@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+.container {
+    display: flex;
+    width: 100%;
+}
+.image-section {
+    flex: 1;
+    background: url('your-image.jpg') no-repeat center center;
+    background-size: cover;
+}
+.form-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+.form-container {
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+}
+.form-container img {
+    width: 150px; /* Задайте размер изображения */
+    height: auto;
+    margin-bottom: 20px;
+}
+.form-container h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #555;
+}
+.form-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 15px; /* Закругленные углы */
+    background-color: #eee; /* Светло-серый фон */
+    color: #333;
+    font-size: 14px;
+    outline: none;
+}
+.form-container input:focus {
+    border-color: #888; /* Цвет рамки при фокусе */
+    background-color: #fff; /* Меняем фон при фокусе */
+}
+.form-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 15px; /* Закругленные углы */
+    cursor: pointer;
+    font-size: 16px;
+}
+.form-container button:hover {
+    background-color: #333;
+}
+.form-container p {
+    text-align: left;  /* Выравнивание по левому краю */
+    font-size: 18px;   /* Увеличиваем размер шрифта */
+    margin-top: 10px;
+}
+.form-container p a {
+    color: black;
+    text-decoration: none;
+}
+.form-container p a:hover {
+    text-decoration: underline;
+}

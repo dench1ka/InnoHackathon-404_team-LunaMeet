@@ -4,8 +4,6 @@ from django.core.exceptions import ValidationError
 from . import models
 
 # Create your views here.
-
-
 def show_sign_up(request):
     return render(request, "registration.html")
 
