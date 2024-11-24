@@ -8,20 +8,21 @@
 </head>
 <body>
   <header>
-    <a href="https://github.com/dench1ka/InnoHackathon-404_team-LunaMeet" class="logo">Logo</a>
+    <a href="#" class="logo">EventApp</a>
     <div class="search-container">
       <input type="text" id="searchInput" placeholder="Поиск событий...">
       <button id="searchButton" class="btn">Найти</button>
     </div>
-    <button id="loginButton" class="btn">Вход</button>
+    <div>
+      <button id="loginButton" class="btn">Войти</button>
+      <button id="profileButton" class="btn">Профиль</button>
+    </div>
   </header>
 
   <main>
     <section class="category">
-      <h2>Category</h2>
-      <div id="eventsContainer" class="cards">
-        <!-- Карточки событий будут добавляться динамически через JS -->
-      </div>
+      <h2>Категория событий</h2>
+      <div id="eventsContainer" class="cards"></div>
     </section>
   </main>
 
@@ -49,16 +50,6 @@
         <input type="password" placeholder="Придумайте пароль" required>
         <button type="submit" class="btn gray-btn">Зарегистрироваться</button>
       </form>
-    </div>
-  </div>
-
-  <!-- Модальное окно карточки события -->
-  <div class="event-card" onclick="openEvent()">
-    <div class="modal-content">
-      <span id="closeEventModal" class="close">&times;</span>
-      <h2 id="eventTitle"></h2>
-      <p id="eventDate"></p>
-      <p id="eventLocation"></p>
     </div>
   </div>
 

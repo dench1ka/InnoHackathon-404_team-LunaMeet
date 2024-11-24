@@ -1,0 +1,35 @@
+.profile {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-info {
+    text-align: center;
+  }
+  
+  .profile-info .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .event-lists h2 {
+    margin-top: 20px;
+    color: #333;
+  }
+  
+  .event-lists ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .event-lists ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
