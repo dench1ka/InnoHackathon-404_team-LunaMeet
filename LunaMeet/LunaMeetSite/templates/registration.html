@@ -8,21 +8,34 @@
     <link rel="stylesheet" href='{% static "css/registration_page.css" %}' />
 </head>
 <body>
-    <div class="container">
-        <div class="image-section"></div>
-        <div class="form-section">
-            <div class="form-container">
-                <img src='{% static "img/LunaMeet_without_background.png" %}'>
-                <h2>Sign-up</h2>
-                <form id="form" action="/user-sign-up" method="post">
-                    {% csrf_token %}
-                    <input type="email" name="email" placeholder="Email..." required>
-                    <input type="password" name="password" placeholder="Password..." required>
-                    <input type="password" name="confirm_password" placeholder="Confirm..." required>
-                    <input type="text" name="username" placeholder="Username..." required>
-                    <button type="submit">Sign-up</button>
-                </form>
-                <p>Already have an account? <a href="sign-in">Sign-in</a></p>
+    <div class="login">
+        <div class="image-container">
+            <div class="image"></div>
+        </div>
+        <div class="content">
+            <div class="block">
+                <div class="head">
+                    <img src='{% static "img/LunaMeet_without_background.png" %}' alt="LunaMeet Logo" class="luna-meet_image">
+                </div>
+                <div class="frame">
+                    <div class="head2">
+                        <div class="sign-up">Sign-up</div>
+                    </div>
+                    <form id="form" action="/user-sign-up" method="post">
+                        <div class="main">
+                            {% csrf_token %}
+                            <input type="email" class="input email" name="email" placeholder="Email..." required>
+                            <input type="password" class="input password" name="password" placeholder="Password..." required>
+                            <input type="password" class="input password" name="confirm_password" placeholder="Confirm Password..." required>
+                            <input type="text" class="input username" name="username" placeholder="Username..." required>
+                            <button type="submit" class="button">Sign-up</button>
+                        </div>
+                    </form>
+                    <div class="to-sign-in">
+                        <div class="have-account">Already have an account?</div>
+                        <a href="sign-in" class="sign-in">Sign-in</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
