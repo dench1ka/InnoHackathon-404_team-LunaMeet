@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, AbstractUser
+from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 
 # Create your models here.
 
@@ -41,14 +41,16 @@ class UserManager(BaseUserManager):
     def create_superuser(self, email, password=None, **extra_fields):
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
+        extra_fields.setdefault('is_active', True)
         return self.create_user(email, password, **extra_fields)
 
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=20, unique=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=False)
 
     organized_events_id = models.ManyToManyField('Event', through='Organizers', related_name='organized_event')
     visited_events_id = models.ManyToManyField('Event', through='Visited', related_name='visited_users')
@@ -56,6 +58,8 @@ class User(AbstractBaseUser):
     commented_events_id = models.ManyToManyField('Event', through='Comments', related_name='commented_users')
 
     objects = UserManager()
+
+    USERNAME_FIELD = 'email'
 
     def __str__(self):
         return self.email
