@@ -21,20 +21,22 @@
           <div class="head2">
             <div class="sign-in">Sign-in</div>
           </div>
-          <div class="main">
-            <input type="text" class="input email" placeholder="Email...">
-            <input type="password" class="input password" placeholder="Password...">
-          </div>
-          <div class="button">
-            <div class="sign-in2">Sign-in</div>
-          </div>
+          <form id="form" action="/user-sign-in" method="post">
+            <div class="main">
+              {% csrf_token %}
+              <input type="text" class="input email" name="email" placeholder="Email...">
+              <input type="password" class="input password" name="password" placeholder="Password...">
+              <button type="submit" class="button">Sign-in</button>
+            </div>
+          </form>
           <div class="to-sign-up">
             <div class="no-account">No account?</div>
-            <a href="#" class="sign-up">Sign-up</a>
+            <a href="sign-up" class="sign-up">Sign-up</a>
           </div>
         </div>
       </div>
     </div>
+    <script src="{% static 'js/login.js' %}"></script>
   </div>
 </body>
 </html>

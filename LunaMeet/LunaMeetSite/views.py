@@ -3,13 +3,44 @@ from django.http import HttpRequest, JsonResponse
 from django.core.exceptions import ValidationError
 from . import models
 from django.views.decorators.csrf import csrf_protect
+from rest_framework.authtoken.models import Token
+
 
 # Create your views here.
 def show_sign_up(request):
     return render(request, "registration.html")
 
+
 def show_sign_in(request):
     return render(request, "login.html")
+
+
+def main_page(request):
+    return render(request, 'main_page.html')
+
+
+@csrf_protect
+def login(request: HttpRequest):
+    if request.method == "POST":
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        if not email or not password:
+            return JsonResponse({"error": "All fields are required."}, status=400)
+
+        user = models.User.objects.filter(email=email).first()
+
+        if user is None:
+            return JsonResponse({"error": "User with that email doesn't exist."}, status=404)
+
+        if not (user.check_password(password)):
+            return JsonResponse({"error": "Invalid email or password."}, status=400)
+
+        token, created = Token.objects.get_or_create(user=user)
+        return JsonResponse({'message': 'User login successfully', "token": token.key}, status=200)
+
+    return JsonResponse({"error": "Invalid request method."}, status=405)
+
 
 @csrf_protect
 def register(request: HttpRequest):
@@ -40,6 +71,3 @@ def register(request: HttpRequest):
             return JsonResponse({"error": "An unexpected error occurred."}, status=500)
 
     return JsonResponse({"error": "Invalid request method."}, status=405)
-
-def main_page(request):
-    return render(request, 'main_page.html')

@@ -14,7 +14,7 @@
             <div class="form-container">
                 <img src='{% static "img/LunaMeet_without_background.png" %}'>
                 <h2>Sign-up</h2>
-                <form action="/user-sign-up" method="post">
+                <form id="form" action="/user-sign-up" method="post">
                     {% csrf_token %}
                     <input type="email" name="email" placeholder="Email..." required>
                     <input type="password" name="password" placeholder="Password..." required>
@@ -22,9 +22,10 @@
                     <input type="text" name="username" placeholder="Username..." required>
                     <button type="submit">Sign-up</button>
                 </form>
-                <p>Already have an account? <a href="#">Sign-in</a></p>
+                <p>Already have an account? <a href="sign-in">Sign-in</a></p>
             </div>
         </div>
     </div>
+    <script src="{% static 'js/registration.js' %}"></script>
 </body>
 </html>

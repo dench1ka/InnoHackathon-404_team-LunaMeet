@@ -25,6 +25,8 @@ SECRET_KEY = 'django-insecure-)t-bl!%-=0wwyy)(fjnc&%o+q(lmhkr^&l#joo%e%-9#=6lq*8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+AUTH_USER_MODEL = 'LunaMeetSite.User'
+
 ALLOWED_HOSTS = []
 
 
@@ -38,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'LunaMeetSite',
+    'rest_framework',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
