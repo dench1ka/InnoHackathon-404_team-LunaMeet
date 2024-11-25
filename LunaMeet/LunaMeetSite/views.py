@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpRequest, JsonResponse
 from django.core.exceptions import ValidationError
 from . import models
@@ -116,7 +116,7 @@ def confirm_email(request, uidb64, token):
     if default_token_generator.check_token(user, token):
         user.is_active = True
         user.save()
-        return JsonResponse({'message': 'Аккаунт успешно подтверждён!'})
+        return redirect('login')
     else:
         return JsonResponse({'error': 'Ссылка недействительна'}, status=400)
 
