@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LunaMeet</title>
+  <link rel="stylesheet" href='{% static "css/profile.css" %}' /> <!-- Подключение CSS -->
+</head>
+<body>
+<div class="profile">
+  <div class="body">
+    <div class="profily">
+      <div class="icon"></div>
+      <div class="info">
+        <div class="field">
+          <div class="name">
+            <div class="name2">Name</div>
+          </div>
+          <div class="value">
+            <div class="akkevilli">@Akkevilli</div>
+          </div>
+        </div>
+        <div class="field2">
+          <div class="name">
+            <div class="email">Email</div>
+          </div>
+          <div class="value">
+            <div class="email-gmail-com">Email@gmail.com</div>
+          </div>
+        </div>
+        <div class="field3">
+          <div class="name">
+            <div class="description">Description</div>
+          </div>
+          <div class="value2">
+            <div class="div">
+              Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру
+              сгенерировать несколько абзацев более менее осмысленного текста
+              рыбы на русском языке, а начинающему оратору отточить навык
+              публичных выступлений в домашних условиях.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="block">
+        <div class="head">
+          <div class="planned">Planned</div>
+        </div>
+        <div class="content2">
+          <div class="card">
+            <div class="gomel">Gomel</div>
+            <div class="_22-11-2024-29-11-2024">22.11.2024 - 29.11.2024</div>
+            <div class="innowise-hacaton">Innowise hacaton</div>
+            <div class="image">
+              <!-- Здесь добавляем изображение -->
+              <img src="{% static 'images/your-image1.jpg' %}" alt="Event image 1" />
+            </div>
+          </div>
+          <div class="card">
+            <div class="gomel">Gomel</div>
+            <div class="_22-11-2024-29-11-2024">22.11.2024 - 29.11.2024</div>
+            <div class="innowise-hacaton">Innowise hacaton</div>
+            <div class="image">
+              <!-- Здесь добавляем изображение -->
+              <img src="{% static 'images/your-image2.jpg' %}" alt="Event image 2" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="head">
+          <div class="visited">Visited</div>
+        </div>
+        <div class="content2">
+          <div class="card">
+            <div class="gomel">Gomel</div>
+            <div class="_22-11-2024-29-11-2024">22.11.2024 - 29.11.2024</div>
+            <div class="innowise-hacaton">Innowise hacaton</div>
+            <div class="image">
+              <!-- Здесь добавляем изображение -->
+              <img src="{% static 'images/your-image3.jpg' %}" alt="Event image 3" />
+            </div>
+          </div>
+          <div class="card">
+            <div class="gomel">Gomel</div>
+            <div class="_22-11-2024-29-11-2024">22.11.2024 - 29.11.2024</div>
+            <div class="innowise-hacaton">Innowise hacaton</div>
+            <div class="image">
+              <!-- Здесь добавляем изображение -->
+              <img src='{% static "img/LunaMeet_without_background.png" %}' alt="Event image 4" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
