@@ -107,12 +107,12 @@ header img {
 
 .actions button:nth-child(2) {
   padding: 12px 18px;
-  background-color: #333;
+  background-color: #303030;
   border-radius: 5px;
 }
 
 .actions button:nth-child(2):hover {
-  background-color: #303030;
+  background-color: #202020;
   transform: translateY(-2px);
 }
 
