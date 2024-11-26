@@ -36,14 +36,16 @@
     background: #ececec; /* Светло-серый фон для видимости */
   }
 
-  .image {
-    background: url('fot.png') no-repeat center center;
-    background-size: 100% 100%; /* Картинка заполняет контейнер без сохранения пропорций */
-    width: 100%; /* Уменьшенная ширина для центрирования */
-    height: 100%; /* Пропорциональная высота */
-    /*border: 2px solid #af1f1f; /* Рамка */
-    max-height: 100%; /* Ограничение высоты контейнера */
-  }
+
+.image {
+  background: url('../img/Day.png') no-repeat center center;
+  background-size: 100% 100%; /* Картинка заполняет контейнер без сохранения пропорций */
+  width: 100%; /* Уменьшенная ширина для центрирования */
+  height: 100%; /* Пропорциональная высота */
+  /*border: 2px solid #af1f1f; /* Рамка */
+  max-height: 100%; /* Ограничение высоты контейнера */
+}
+
 
   .content {
     padding: 5%;
