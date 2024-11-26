@@ -14,6 +14,9 @@ def show_sign_up(request):
 def show_sign_in(request):
     return render(request, "login.html")
 
+def show_eventpage(request):
+    return render(request, "eventpage.html")
+
 def show_profile(request):
     return render(request, "profile.html")
 

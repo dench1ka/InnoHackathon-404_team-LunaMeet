@@ -37,7 +37,7 @@ html, body {
 }
 
 .image {
-  background: url('fot.png') no-repeat center center;
+  background: url('../img/Day.png') no-repeat center center;
   background-size: 100% 100%; /* Картинка заполняет контейнер без сохранения пропорций */
   width: 100%; /* Уменьшенная ширина для центрирования */
   height: 100%; /* Пропорциональная высота */
