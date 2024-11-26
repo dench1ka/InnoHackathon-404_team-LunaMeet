@@ -139,7 +139,7 @@ def main_page(request):
 
 
 def show_add_event(request):
-    return render(request, "add_event.html")
+    return render(request, "add_event.html", {"categories": models.Category.objects.all()})
 
 
 @csrf_protect
@@ -208,6 +208,7 @@ def add_event(request):
         name = request.POST.get('name')
         description = request.POST.get('description')
         category = request.POST.get('category')
+        category = models.Category.objects.get(id=category)
 
         # Получаем массивы данных (организаторы и временные метки)
         organizers = request.POST.getlist('organizers[]')  # Список организаторов
@@ -223,11 +224,13 @@ def add_event(request):
             category=category
         )
 
+        event.save()
+
         # Добавляем организаторов
         for organizer_name in organizers:
             user = models.User.objects.filter(username=organizer_name).first()
             if user:
-                event.organizers.add(user)
+                models.Organizers.objects.create(event=event, user=user)
 
         # Добавляем временные метки
         for timecod in timecods:
@@ -248,7 +251,6 @@ def add_event(request):
 def get_user_by_username(request: HttpRequest):
     if request.method == 'GET':
         username = request.GET.get('username')
-        print(username)
 
         user = models.User.objects.filter(username=username).first()
 

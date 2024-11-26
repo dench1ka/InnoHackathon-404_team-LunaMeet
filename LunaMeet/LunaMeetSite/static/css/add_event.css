@@ -1,188 +1,148 @@
 /* Основные стили */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5; /* Светло-серый фон */
-    color: #333; /* Темный текст */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  .container {
-    background-color: #fff; /* Белый фон формы */
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 600px;
-    width: 100%;
-  }
-  
-  header h1 {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #000; /* Чёрный цвет заголовка */
-  }
-  
-  /* Формы */
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #444;
-  }
-  
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    resize: vertical;
-    border-radius: 4px;
-    transition: border-color 0.3s;
-  }
-  
-  .form-group input,
-  .form-group textarea{
-    width: calc(100% - 20px)
-  }
-
-  .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group select:focus {
-    border-color: #333; /* Темный акцент при фокусе */
-    outline: none;
-  }
-  
-  .input-row {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  
-  .input-row button {
-    background-color: #333; /* Темный фон кнопки */
-    color: #fff; /* Белый текст */
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .input-row button:hover {
-    background-color: #555; /* Более светлый фон при наведении */
-  }
-  
-  /* Списки */
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  ul li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 8px;
-  }
-  
-  ul li button {
-    background-color: #ff4d4d; /* Красный фон для кнопки удаления */
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  ul li button:hover {
-    background-color: #ff3333; /* Более яркий красный при наведении */
-  }
-  
-  /* Кнопка отправки */
-  button[type="submit"] {
-    background-color: #000;
-    color: #fff;
-    font-weight: bold;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    width: 100%;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #333;
-  }
-  
-  /* Превью изображений */
-  #imagePreview {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 10px;
-  }
-  
-  #imagePreview img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-
-  /* popup.css */
-.popup {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #fff;
-    padding: 15px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    font-family: "Inter-Medium", sans-serif;
-    font-size: 1rem;
-    z-index: 1000;
-    animation: fade-in 0.3s ease-in-out;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5; /* Светло-серый фон */
+  color: #333; /* Темный текст */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.popup.success {
-    border: 2px solid #525252;
-    color: #000000;
+.container {
+  background-color: #fff; /* Белый фон формы */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 600px;
+  width: 100%;
 }
 
-.popup.error {
-    border: 2px solid #3f3f3f;
-    color: #000000;
+header h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #000; /* Чёрный цвет заголовка */
 }
 
-@keyframes fade-in {
-    from {
-        opacity: 0;
-        transform: translateX(-50%) translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-    }
+/* Формы */
+.form-group {
+  margin-bottom: 15px;
 }
 
-  
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.form-group input,
+.form-group textarea{
+  width: calc(100% - 20px);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #333; /* Темный акцент при фокусе */
+  outline: none;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.input-row button {
+  background-color: #333; /* Темный фон кнопки */
+  color: #fff; /* Белый текст */
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.input-row button:hover {
+  background-color: #555; /* Более светлый фон при наведении */
+}
+
+/* Списки */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+ul li button {
+  background-color: #ff4d4d; /* Красный фон для кнопки удаления */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+ul li button:hover {
+  background-color: #ff3333; /* Более яркий красный при наведении */
+}
+
+/* Кнопка отправки */
+button[type="submit"] {
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #333;
+}
+
+/* Превью изображений */
+#imagePreview {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+#imagePreview img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
