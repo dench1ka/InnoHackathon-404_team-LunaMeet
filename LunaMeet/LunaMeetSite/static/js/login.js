@@ -16,11 +16,8 @@ form.addEventListener('submit', async (event) => {
         if (response.ok) {
             window.location.href = 'http://127.0.0.1:8000';
             sessionStorage.setItem('authToken', result.token);
-            // Покажем всплывающее окно при успешной регистрации
-            showPopup('Вы успешно зарегистрированы!', true);
         } else {
-            // Покажем всплывающее окно при ошибке
-            showPopup('Ошибка при регистрации. Попробуйте снова.', false);
+            showPopup(result.error, false);
         }
     } catch (error) {
         console.log(error);

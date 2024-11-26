@@ -120,12 +120,14 @@ def confirm_email(request, uidb64, token):
     else:
         return JsonResponse({'error': 'Ссылка недействительна'}, status=400)
 
+
 def show_sign_up(request):
     return render(request, "registration.html")
 
 
 def show_sign_in(request):
     return render(request, "login.html")
+
 
 def show_profile(request):
     return render(request, "profile.html")
