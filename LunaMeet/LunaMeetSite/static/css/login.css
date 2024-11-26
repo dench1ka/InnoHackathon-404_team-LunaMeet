@@ -1,40 +1,41 @@
-/* Сброс базовых стилей */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  /* Сброс базовых стилей */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-html, body {
-  height: 100%;
-  width: 100%;
-  overflow: hidden; /* Убираем прокрутку */
-}
+  html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Убираем прокрутку */
+  }
 
-.login,
-.login * {
-  box-sizing: border-box;
-}
+  .login,
+  .login * {
+    box-sizing: border-box;
+  }
 
-.login {
-  background: #ffffff;
-  display: flex;
-  flex-direction: row; /* Расположение блоков в строку */
-  align-items: stretch;
-  justify-content: space-between;
-  height: 100vh; /* Высота контейнера строго равна высоте окна */
-  overflow: hidden; /* Убираем прокрутку */
-  margin: 0; /* Устраняем отступы d */
-}
+  .login {
+    background: #ffffff;
+    display: flex;
+    flex-direction: row; /* Расположение блоков в строку */
+    align-items: stretch;
+    justify-content: space-between;
+    height: 100vh; /* Высота контейнера строго равна высоте окна */
+    overflow: hidden; /* Убираем прокрутку */
+    margin: 0; /* Устраняем отступы d */
+  }
 
-.image-container {
-  width: 50%; /* Половина ширины окна */
-  height: 100%; /* Высота строго равна высоте окна */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #ececec; /* Светло-серый фон для видимости */
-}
+  .image-container {
+    width: 50%; /* Половина ширины окна */
+    height: 100%; /* Высота строго равна высоте окна */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ececec; /* Светло-серый фон для видимости */
+  }
+
 
 .image {
   background: url('../img/Day.png') no-repeat center center;
@@ -45,143 +46,183 @@ html, body {
   max-height: 100%; /* Ограничение высоты контейнера */
 }
 
-.content {
-  padding: 5%;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
 
-/* Адаптация для мобильных устройств */
-@media (max-width: 768px) {
-  .login {
-    flex-direction: column; /* Вертикальное расположение блоков */
+  .content {
+    padding: 5%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
   }
 
-  .image-container {
-    display: none;
+  /* Адаптация для мобильных устройств */
+  @media (max-width: 768px) {
+    .login {
+      flex-direction: column; /* Вертикальное расположение блоков */
+    }
+
+    .image-container {
+      display: none;
+    }
   }
-}
 
-.block {
-  background: #f6f6f6;
-  border-radius: 15px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 50%; /* Полная ширина */
-  max-width: 500px; /* Максимальная ширина */
-  min-width: 300px; /* Минимальная ширина */
-  margin: 0 auto; /* Центрируем карточку */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
-}
+  .block {
+    background: #f6f6f6;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 50%; /* Полная ширина */
+    max-width: 500px; /* Максимальная ширина */
+    min-width: 300px; /* Минимальная ширина */
+    margin: 0 auto; /* Центрируем карточку */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
+  }
 
-.head {
-  padding: 20px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 60px;
-}
+  .head {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+  }
 
-.luna-meet_image {
-  width: 150px; /* Установите ширину изображения */
-  height: auto; /* Сохраняйте пропорции изображения */
-  object-fit: contain; /* Подгоняет изображение */
-}
+  .luna-meet_image {
+    width: 150px; /* Установите ширину изображения */
+    height: auto; /* Сохраняйте пропорции изображения */
+    object-fit: contain; /* Подгоняет изображение */
+  }
 
 
-.frame {
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 100%;
-}
+  .frame {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+  }
 
-.head2 {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-}
+  .head2 {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+  }
 
-.sign-in {
-  color: #000000;
-  font-family: "Inter-SemiBold", sans-serif;
-  font-size: 2rem;
-}
+  .sign-in {
+    color: #000000;
+    font-family: "Inter-SemiBold", sans-serif;
+    font-size: 2rem;
+  }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 100%;
-}
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+  }
 
-.input {
-  background: #dcdcdc;
-  border-radius: 15px;
-  border: 2px solid #dbdbdb;
-  padding: 10px;
-  width: 100%; /* Полная ширина */
-}
+  .input {
+    background: #dcdcdc;
+    border-radius: 15px;
+    border: 2px solid #dbdbdb;
+    padding: 10px;
+    width: 100%; /* Полная ширина */
+  }
 
-.email,
-.password {
-  color: #6a6a6a;
+  .email,
+  .password {
+    color: #6a6a6a;
+    font-family: "Inter-Medium", sans-serif;
+    font-size: 1rem;
+  }
+
+  .button {
+    background: #000000;
+    color: white;
+    font-size: 16px;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Адаптивная ширина */
+  }
+
+  .sign-in2 {
+    color: #ffffff;
+    font-family: "Inter-SemiBold", sans-serif;
+    font-size: 1.2rem;
+  }
+
+  .to-sign-up {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .no-account,
+  .sign-up {
+    font-family: "Inter-Medium", sans-serif;
+    font-size: 1rem;
+  }
+
+  .sign-up {
+    text-decoration: underline;
+    color: #000000;
+  }
+/* Всплывающее окно */
+.popup {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   font-family: "Inter-Medium", sans-serif;
   font-size: 1rem;
+  z-index: 1000;
+  animation: fade-in 0.3s ease-in-out;
 }
 
-.button {
-  background: #000000;
-  color: white;
-  font-size: 16px;
-  border-radius: 15px;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%; /* Адаптивная ширина */
+/* Успешное сообщение */
+.popup.success {
+  border: 2px solid #4caf50;
+  color: #4caf50;
 }
 
-.sign-in2 {
-  color: #ffffff;
-  font-family: "Inter-SemiBold", sans-serif;
-  font-size: 1.2rem;
+/* Ошибочное сообщение */
+.popup.error {
+  border: 2px solid #f44336;
+  color: #f44336;
 }
 
-.to-sign-up {
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
-  width: 100%;
-  justify-content: center;
-}
-
-.no-account,
-.sign-up {
-  font-family: "Inter-Medium", sans-serif;
-  font-size: 1rem;
-}
-
-.sign-up {
-  text-decoration: underline;
-  color: #000000;
+/* Анимация появления */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }

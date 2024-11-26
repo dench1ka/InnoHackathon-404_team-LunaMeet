@@ -14,11 +14,31 @@ form.addEventListener('submit', async (event) => {
         const result = await response.json();
 
         if (response.ok) {
-            window.location.href = 'http://127.0.0.1:8000/sign-in';
+            showPopup(result.message, true);
         } else {
-            alert(result.error || "Something went wrong.");
+            showPopup(result.error, false)
         }
     } catch (error) {
-        alert("An unexpected error occurred.");
+        console.log(error)
     }
 })
+
+
+function showPopup(message, isSuccess) {
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.textContent = message;
+
+    if (isSuccess) {
+        popup.classList.add('success');
+    } else {
+        popup.classList.add('error');
+    }
+
+    document.body.appendChild(popup);
+
+    // Закрыть окно через 3 секунды
+    setTimeout(() => {
+        popup.remove();
+    }, 3000);
+}

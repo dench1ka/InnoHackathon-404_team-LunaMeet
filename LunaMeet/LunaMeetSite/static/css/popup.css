@@ -1,0 +1,36 @@
+/* popup.css */
+.popup {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-family: "Inter-Medium", sans-serif;
+    font-size: 1rem;
+    z-index: 1000;
+    animation: fade-in 0.3s ease-in-out;
+}
+
+.popup.success {
+    border: 2px solid #525252;
+    color: #000000;
+}
+
+.popup.error {
+    border: 2px solid #3f3f3f;
+    color: #000000;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
