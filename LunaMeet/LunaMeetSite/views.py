@@ -137,6 +137,10 @@ def main_page(request):
     return render(request, 'main_page.html')
 
 
+def show_add_event(request):
+    return render(request, "add_event.html")
+
+
 @csrf_protect
 def login(request: HttpRequest):
     if request.method == "POST":
