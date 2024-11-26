@@ -8,56 +8,61 @@
   <link rel="stylesheet" href="{% static 'css/add_event.css' %}">
 </head>
 <body>
-  <div class="form-container">
-    <div class="form-header">Создание события</div>
-    <div class="form-body">
+  <div class="container">
+    <header>
+      <h1>Создать новое событие</h1>
+    </header>
+    <main>
       <form id="eventForm">
-        <div class="form-group">
-          <label for="images">Добавить изображения:</label>
-          <input type="file" id="images" accept="image/*" multiple>
-          <div id="imagePreview"></div>
-        </div>
+        {% csrf_token %}
         <div class="form-group">
           <label for="eventName">Название события:</label>
-          <input type="text" id="eventName" placeholder="Введите название" required>
+          <input type="text" id="eventName" name="name" placeholder="Введите название" required>
         </div>
         <div class="form-group">
           <label for="eventDescription">Описание:</label>
-          <textarea id="eventDescription" rows="4" placeholder="Введите описание" required></textarea>
+          <textarea id="eventDescription" name="description" rows="4" placeholder="Введите описание" required></textarea>
         </div>
         <div class="form-group">
           <label for="eventCategory">Категория:</label>
-          <select id="eventCategory" required>
+          <select id="eventCategory" name="category" required>
             <option value="" disabled selected>Выберите категорию</option>
-            <option value="news">Новости и события</option>
-            <option value="techs">Технологии и инновации</option>
-            <option value="health">Здоровье и фитнесс</option>
-            <option value="hobbies">Хобби и увлечения</option>
-            <option value="literature">Книги и литература</option>
-            <option value="cinema">Кино и телевидение</option>
+            <option value="news">Новости</option>
+            <option value="techs">Технологии</option>
+            <option value="health">Здоровье</option>
             <option value="games">Игры</option>
-            <option value="education">Образование и карьера</option>
-            <option value="trips">Путешествия и отдых</option>
-            <option value="services">Сервисы</option>
-            <option value="social">Социальные вопросы</option>
-            <option value="other">Другое</option>
+            <option value="education">Образование</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="eventDate">Дата:</label>
-          <input type="date" id="eventDate" required>
+          <label for="organizerInput">Организаторы:</label>
+          <div class="input-row">
+            <input type="text" id="organizerInput" placeholder="Введите имя организатора">
+            <button type="button" id="addOrganizer">Добавить</button>
+          </div>
+          <ul id="organizerList"></ul>
         </div>
         <div class="form-group">
-          <label for="eventPlace">Место:</label>
-          <input type="text" id="eventPlace" placeholder="Введите место" required>
+          <label>Расписание:</label>
+          <div class="input-row">
+            <input type="text" id="timecodName" placeholder="Название">
+            <input type="date" id="timecodDate">
+            <button type="button" id="addTimecod">Добавить</button>
+          </div>
+          <ul id="timecodList"></ul>
         </div>
         <div class="form-group">
-          <button type="submit">Создать</button>
+          <label for="images">Изображения:</label>
+          <input type="file" id="images" name="photos" accept="image/*" multiple>
+          <div id="imagePreview"></div>
+        </div>
+        <div class="form-group">
+          <button type="submit">Создать событие</button>
         </div>
       </form>
-    </div>
+    </main>
   </div>
 
-  {% comment %} <script src="{% static %}"></script> {% endcomment %}
+  <script src="{% static 'js/add_event.js' %}"></script>
 </body>
 </html>

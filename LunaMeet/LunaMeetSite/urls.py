@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('profile', views.show_profile),
@@ -9,5 +11,9 @@ urlpatterns = [
     path('user-sign-in', views.login),
     path('confirm_email/<uidb64>/<token>/', views.confirm_email, name='confirm_email'),
     path('add-event', views.show_add_event),
+    path('api-add-event', views.add_event),
+    path('api-user-by-username', views.get_user_by_username),
     path('', views.main_page)
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

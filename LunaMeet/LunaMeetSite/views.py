@@ -1,15 +1,16 @@
+import json
+from . import models
+from django.urls import reverse
+from django.core.mail import EmailMessage
+from django.utils.encoding import force_bytes
 from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404
+from rest_framework.authtoken.models import Token
 from django.http import HttpRequest, JsonResponse
 from django.core.exceptions import ValidationError
-from . import models
 from django.views.decorators.csrf import csrf_protect
-from rest_framework.authtoken.models import Token
-from django.core.mail import EmailMessage
-from django.urls import reverse
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.shortcuts import get_object_or_404
-from django.utils.encoding import force_bytes
 from django.contrib.auth.tokens import default_token_generator
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
 
 # Create your views here.
@@ -196,5 +197,64 @@ def register(request: HttpRequest):
         except Exception as e:
             print(e)
             return JsonResponse({"error": "An unexpected error occurred."}, status=500)
+
+    return JsonResponse({"error": "Invalid request method."}, status=405)
+
+
+@csrf_protect
+def add_event(request):
+    if request.method == 'POST':
+        # Получаем обычные поля формы
+        name = request.POST.get('name')
+        description = request.POST.get('description')
+        category = request.POST.get('category')
+
+        # Получаем массивы данных (организаторы и временные метки)
+        organizers = request.POST.getlist('organizers[]')  # Список организаторов
+        timecods = request.POST.getlist('timecods[]')      # Список временных меток
+
+        # Получаем файлы
+        photos = request.FILES.getlist('photos[]')  # Список файлов
+
+        # Создаем событие
+        event = models.Event.objects.create(
+            name=name,
+            description=description,
+            category=category
+        )
+
+        # Добавляем организаторов
+        for organizer_name in organizers:
+            user = models.User.objects.filter(username=organizer_name).first()
+            if user:
+                event.organizers.add(user)
+
+        # Добавляем временные метки
+        for timecod in timecods:
+            timecod_name, timecod_date = timecod.split(" - ", 1)  # Разбираем временную метку
+            models.TimeCod.objects.create(event=event, name=timecod_name, time=timecod_date)
+
+        # Сохраняем фотографии
+        for photo in photos:
+            models.Photos.objects.create(event=event, photo=photo)
+
+        event.save()
+
+        return JsonResponse({"message": "Event created successfully."}, status=201)
+    return JsonResponse({"error": "Invalid request method."}, status=405)
+
+
+
+def get_user_by_username(request: HttpRequest):
+    if request.method == 'GET':
+        username = request.GET.get('username')
+        print(username)
+
+        user = models.User.objects.filter(username=username).first()
+
+        if user and user.is_active:
+            return JsonResponse({"message": "User exists."}, status=200)
+
+        return JsonResponse({"error": "User doesn't exists."}, status=404)
 
     return JsonResponse({"error": "Invalid request method."}, status=405)

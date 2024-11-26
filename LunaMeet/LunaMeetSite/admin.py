@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext_lazy as _
-from .models import User
+from .models import User, Category
 
 
 class UserAdmin(BaseUserAdmin):
@@ -29,4 +29,12 @@ class UserAdmin(BaseUserAdmin):
     filter_horizontal = ('groups', 'user_permissions')
 
 
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')  # Отображаем в списке id и name
+    search_fields = ('name',)  # Добавляем возможность поиска по полю name
+    list_filter = ('name',)  # Добавляем фильтрацию по полю name
+
+
+# Регистрируем модель Category с классом администратора
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(User, UserAdmin)

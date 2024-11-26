@@ -81,6 +81,7 @@ class Event(models.Model):
     visited_users_id = models.ManyToManyField(User, through='Visited', related_name='visited_events')
     planed_users_id = models.ManyToManyField(User, through='Planed', related_name='planed_events')
     commented_users_id = models.ManyToManyField(User, through='Comments', related_name='commented_events')
+    created_at = models.DateTimeField(auto_now=True)
 
 
 class TimeCod(models.Model):
@@ -91,3 +92,7 @@ class TimeCod(models.Model):
     def __str__(self):
         return f"{self.time} : {self.name}"
 
+
+class Photos(models.Model):
+    event = models.ForeignKey(Event, models.CASCADE, related_name='photos')
+    photo = models.ImageField(upload_to='photos/')
