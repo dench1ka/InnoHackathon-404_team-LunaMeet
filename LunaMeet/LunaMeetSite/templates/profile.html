@@ -5,94 +5,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LunaMeet</title>
-  <link rel="stylesheet" href='{% static "css/profile.css" %}' /> <!-- Подключение CSS -->
+  <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 </head>
 <body>
 <div class="profile">
   <div class="body">
+    <!-- Блок профиля -->
     <div class="profily">
       <div class="icon"></div>
       <div class="info">
         <div class="field">
-          <div class="name">
-            <div class="name2">Name</div>
-          </div>
-          <div class="value">
-            <div class="akkevilli">@Akkevilli</div>
-          </div>
+          <div class="name">Name</div>
+          <div class="value">{{ user.username }}</div>
         </div>
         <div class="field2">
-          <div class="name">
-            <div class="email">Email</div>
-          </div>
-          <div class="value">
-            <div class="email-gmail-com">Email@gmail.com</div>
-          </div>
+          <div class="name">Email</div>
+          <div class="value">{{ user.email }}</div>
         </div>
         <div class="field3">
-          <div class="name">
-            <div class="description">Description</div>
-          </div>
-          <div class="value2">
-            <div class="div">
-              Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру
-              сгенерировать несколько абзацев более менее осмысленного текста
-              рыбы на русском языке, а начинающему оратору отточить навык
-              публичных выступлений в домашних условиях.
-            </div>
-          </div>
+          <div class="name">Description</div>
+          <div class="value">{{ user.description }}</div>
         </div>
       </div>
     </div>
+
+    <!-- Блок событий -->
     <div class="content">
+      <!-- Planned Events -->
       <div class="block">
         <div class="head">
           <div class="planned">Planned</div>
         </div>
         <div class="content2">
+          {% for event in planned_events %}
           <div class="card">
-            <div class="gomel">Gomel</div>
-            <div class="_22-11-2024-29-11-2024">22.11.2024 - 29.11.2024</div>
-            <div class="innowise-hacaton">Innowise hacaton</div>
+            <div class="location">{{ event.location }}</div>
+            <div class="dates">{{ event.start_date }} - {{ event.end_date }}</div>
+            <div class="title">{{ event.name }}</div>
             <div class="image">
-              <!-- Здесь добавляем изображение -->
-              <img src="{% static 'images/your-image1.jpg' %}" alt="Event image 1" />
+              <img src="{{ event.image.url }}" alt="{{ event.name }}">
             </div>
           </div>
-          <div class="card">
-            <div class="gomel">Gomel</div>
-            <div class="_22-11-2024-29-11-2024">22.11.2024 - 29.11.2024</div>
-            <div class="innowise-hacaton">Innowise hacaton</div>
-            <div class="image">
-              <!-- Здесь добавляем изображение -->
-              <img src="{% static 'images/your-image2.jpg' %}" alt="Event image 2" />
-            </div>
-          </div>
+          {% empty %}
+          <p>No planned events</p>
+          {% endfor %}
         </div>
       </div>
+
+      <!-- Visited Events -->
       <div class="block">
         <div class="head">
           <div class="visited">Visited</div>
         </div>
         <div class="content2">
+          {% for event in visited_events %}
           <div class="card">
-            <div class="gomel">Gomel</div>
-            <div class="_22-11-2024-29-11-2024">22.11.2024 - 29.11.2024</div>
-            <div class="innowise-hacaton">Innowise hacaton</div>
+            <div class="location">{{ event.location }}</div>
+            <div class="dates">{{ event.start_date }} - {{ event.end_date }}</div>
+            <div class="title">{{ event.name }}</div>
             <div class="image">
-              <!-- Здесь добавляем изображение -->
-              <img src="{% static 'images/your-image3.jpg' %}" alt="Event image 3" />
+              <img src="{{ event.image.url }}" alt="{{ event.name }}">
             </div>
           </div>
-          <div class="card">
-            <div class="gomel">Gomel</div>
-            <div class="_22-11-2024-29-11-2024">22.11.2024 - 29.11.2024</div>
-            <div class="innowise-hacaton">Innowise hacaton</div>
-            <div class="image">
-              <!-- Здесь добавляем изображение -->
-              <img src='{% static "img/LunaMeet_without_background.png" %}' alt="Event image 4" />
-            </div>
-          </div>
+          {% empty %}
+          <p>No visited events</p>
+          {% endfor %}
         </div>
       </div>
     </div>
