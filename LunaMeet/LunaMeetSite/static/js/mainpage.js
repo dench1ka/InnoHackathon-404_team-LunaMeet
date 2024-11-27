@@ -3,17 +3,17 @@ document.querySelector('.create-btn').addEventListener('click', function() {
     // Переход на страницу добавления события
     window.location.href = 'add-event'; // Замените на путь к странице добавления события
 });
-// Находим кнопку по ID
-document.getElementById('login-button').addEventListener('click', function() {
-    // Перенаправляем на страницу логина
-    window.location.href = '/sign-in'; // Замените '/login' на правильный URL для вашей страницы логина
-});
+
 document.addEventListener('DOMContentLoaded', function () {
     const search_btn = document.getElementById('search-btn');
     search_btn.addEventListener('click', () => {
         const search_inp = document.getElementById('search-input');
         window.location.href = 'search?query=' + search_inp.value;
-    })
+    });
+
+    document.getElementById('login-btn').addEventListener('click', function() {
+        window.location.href = '/sign-in';
+    });
 
     const authToken = sessionStorage.getItem('authToken');
     const actionsContainer = document.querySelector('.actions');
@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
           window.location.href = 'add-event'; // Укажите путь к добавлению события
         } else {
           alert('Пожалуйста, войдите в систему, чтобы создать объявление.');
+          window.location.href = "sign-in"
         }
       });
     }

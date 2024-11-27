@@ -11,7 +11,7 @@
   <!-- Шапка сайта -->
   <header class="header">
     <div class="logo">
-      <img src='{% static "img/LunaMeet_without_background.png" %}' alt="ЛунаMeet">
+      <a href="http://127.0.0.1:8000/"><img src='{% static "img/LunaMeet_without_background.png" %}' alt="ЛунаMeet"></a>
     </div>
     <div class="search-bar">
       <input type="text" placeholder="Поиск мероприятий..." id="search-input" autocomplete="off">
@@ -24,7 +24,7 @@
     </div>
     <div class="actions">
       <button class="create-btn">Создать объявление</button>
-      <button class="login-btn">Вход</button>
+      <button class="login-btn" id="login-btn">Вход</button>
     </div>
   </header>
 
