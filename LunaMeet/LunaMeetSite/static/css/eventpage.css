@@ -55,18 +55,25 @@ body {
   border-radius: 10px;
   flex: 1;
   height: 300px;
+  padding: 25px;
 }
 
 /* Регистрация */
 .reg {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   gap: 10px;
 }
 
-.reg>*{
-    margin-left: 10px;
+.reg-block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 10px;
+    width: 36%;
+    max-width: 400px;
 }
 
 .category {
@@ -181,13 +188,14 @@ body {
     max-width: 600px; /* Ограничиваем максимальную ширину */
     height: auto;
     object-fit: cover;
-    margin-bottom: 20px;
     border-radius: 8px;
 }
 
 .image {
-    max-width: 100%; /* Максимальная ширина изображения не больше 100% от родителя */
+    max-width: 50%; /* Максимальная ширина изображения не больше 100% от родителя */
     display: flex;
+    height: auto;
+    max-height: 300px;
     justify-content: center; /* Центрируем изображение по горизонтали */
     overflow: hidden; /* Если изображение слишком большое, скрываем лишнее */
 }

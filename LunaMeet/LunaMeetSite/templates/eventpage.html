@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ event.name }}</title>
     <link rel="stylesheet" href="{% static 'css/eventpage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/popup.css' %}">
 </head>
 <body>
 <div class="event-page-day">
@@ -39,17 +40,22 @@
 
   <!-- Регистрация и категория события -->
   <div class="reg">
-    <div class="category">Category: {{ event.category.name }}</div>
-    <div class="place">Place: {{ event.place }}</div>
-    <div class="dd-mm-yyyy-dd-mm-yyyy">{{ event.created_at|date:"d.m.Y" }}</div>
-    <div class="list">
-      <select class="select">
-        <option value="Не был(а)">Не был(а)</option>
-        <option value="Был(а)">Был(а)</option>
-        <option value="Планирую">Планирую</option>
-      </select>
+    <div class="reg-block">
+      <div class="category">Category: {{ event.category.name }}</div>
     </div>
-    <div class="button">Зарегистрироваться</div>
+    <div class="reg-block">
+      <div class="place">Place: {{ event.place }}</div>
+    </div>
+    <div class="reg-block">
+      <div class="list">
+        <select class="select">
+          <option value="Не был(а)">Не был(а)</option>
+          <option value="Был(а)">Был(а)</option>
+          <option value="Планирую">Планирую</option>
+        </select>
+      </div>
+      <div class="button">Зарегистрироваться</div>
+    </div>
   </div>
 
   <!-- Описание события -->
@@ -80,21 +86,22 @@
   <!-- Комментарии -->
   <div class="comments">
     <div class="comments2">Comments</div>
-    <div class="comment-input">
-      <input type="text" placeholder="Введите комментарий..." />
-      <button class="comment-btn">Добавить</button>
-    </div>
+    <form action="" method="post" id="form">
+        {% csrf_token %}
+        <div class="comment-input">
+            <input type="text" placeholder="Введите комментарий..." id="commentInput" name="comment"/>
+            <button class="comment-btn" id="comment-btn" type="submit">Добавить</button>
+        </div>
+    </form>
 
     <!-- Отображение комментариев пользователей -->
-    {% for comment in event.commented_users_id.all %}
+    {% for comment in event.comments_set.all %}
       <div class="comment">
         <div class="user">
-          <div class="user2">{{ comment.username }}</div>
+          <div class="user2">{{ comment.user.username }}</div>
         </div>
         <div class="div4">
-          {% with comment.comments_set.first as user_comment %}
-            {{ user_comment.text }}
-          {% endwith %}
+          {{ comment.text }}
         </div>
       </div>
     {% empty %}
@@ -102,5 +109,6 @@
     {% endfor %}
   </div>
 </div>
+<script src="{% static 'js/eventpage.js' %}"></script>
 </body>
 </html>

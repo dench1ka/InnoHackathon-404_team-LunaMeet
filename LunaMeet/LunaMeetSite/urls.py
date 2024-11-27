@@ -16,6 +16,7 @@ urlpatterns = [
     path('users/<str:token>', views.user),
     path('search', views.search),
     path('user-details-by-token', views.get_user_details_by_token),
+    path('eventpage/add-comment', views.add_comment),
     path('', views.main_page)
 ]
 
