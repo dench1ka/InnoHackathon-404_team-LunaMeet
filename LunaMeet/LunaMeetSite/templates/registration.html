@@ -6,29 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign-up Page</title>
     <!-- Подключаем базовый стиль (по умолчанию темный) -->
-    <link id="theme-style" rel="stylesheet" href="{% static 'css/registration_page_night.css' %}">
-    <link rel="stylesheet" href="{% static 'css/popup.css' %}">
+    <link rel="stylesheet" href='{% static "css/registration_page.css" %}' >
+    <link rel="stylesheet" href='{% static "css/popup.css" %}' >
+    <style>
+        body {
+            color: white;
+            
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-theme {
+            color: black;
+        }
+
+        .theme-toggle {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            background: none;
+        }
+
+        .theme-toggle img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .theme-toggle img.active {
+            transform: rotate(360deg);
+        }
+    </style>
 </head>
 <body>
     <!-- Кнопка переключения темы в верхней части страницы -->
     <div class="theme-switcher">
-        <button id="switch-theme-btn" class="round-button">
-            <img id="theme-icon" src="{% static 'img/moon.png' %}" alt="Theme Icon" style="width: 24px; height: 24px;">
+        <button id="theme-toggle" class="theme-toggle">
+            <img id="theme-icon"  alt="Theme Icon" style="width: 24px; height: 24px;">
         </button>
     </div>
 
     <div class="registration">
         <div class="image-container">
-            <div class="image"></div>
+            <div class="image" ><img class="image" id="dark-mode-icon" alt=""></div>
         </div>
-        <div class="content">
-            <div class="block">
+        <div class="content" id="content">
+            <div class="block" id="block">
                 <div class="head">
                     <img class="luna-meet_image" id="logo">
                 </div>
                 <div class="frame">
                     <div class="head2">
-                        <div class="sign-up">Sign-up</div>
+                        <div class="sign-up text">Sign-up</div>
                     </div>
                     <form id="form" action="/user-sign-up" method="post">
                         <div class="main">
@@ -37,18 +69,18 @@
                             <input type="password" class="input password" name="password" placeholder="Password..." required>
                             <input type="password" class="input password" name="confirm_password" placeholder="Confirm Password..." required>
                             <input type="text" class="input username" name="username" placeholder="Username..." required>
-                            <button type="submit" class="button">Sign-up</button>
+                            <button type="submit" class="button" id="btn">Sign-up</button>
                         </div>
                     </form>
                     <div class="to-sign-in">
-                        <div class="have-account" id="paragraph">Already have an account?</div>
-                        <a href="sign-in" class="sign-in">Sign-in</a>
+                        <div class="have-account text" id="paragraph">Already have an account?</div>
+                        <a href="sign-in" class="sign-in text">Sign-in</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     
-    <script src="{% static 'js/theme.js' %}"></script>
+    <script src='{% static "js/theme.js" %}' ></script>
 </body>
 </html>
