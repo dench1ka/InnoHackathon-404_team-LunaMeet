@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var organizerInput = document.getElementById('organizerInput');
         var organizerName = organizerInput.value.trim();
 
-        const response = await fetch(`http://127.0.0.1:8000/api-user-by-username?username=${organizerName}`, {
+        const response = await fetch(`api-user-by-username?username=${organizerName}`, {
             method: "GET",
         });
 
@@ -82,6 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
             let timecodText = item.textContent.replace('Удалить', '').trim();
             formData.append('timecods[]', timecodText);
         }
+
+        console.log(formData);
 
         try {
             const response = await fetch("http://127.0.0.1:8000/api-add-event", {
