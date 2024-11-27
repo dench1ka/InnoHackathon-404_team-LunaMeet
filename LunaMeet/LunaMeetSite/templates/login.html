@@ -6,9 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LunaMeet</title>
     <link rel="stylesheet" href='{% static "css/login.css" %}' /> <!-- Подключение CSS -->
-    <link rel="stylesheet" href="{% static 'css/popup.css' %}">
+    
+    <link  rel="stylesheet" href="{% static 'css/popup.css' %}">
 </head>
 <body>
+  <div class="theme-switcher">
+    <button id="switch-theme-btn" class="round-button">
+        <img id="theme-icon" src="{% static 'img/moon.png' %}" alt="Theme Icon" style="width: 24px; height: 24px;">
+    </button>
+</div>
   <div class="login">
     <div class="image-container">
       <div class="image">
@@ -40,6 +46,7 @@
       </div>
     </div>
     <script src="{% static 'js/login.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
   </div>
 </body>
 </html>

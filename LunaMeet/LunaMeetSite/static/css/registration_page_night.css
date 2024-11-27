@@ -28,20 +28,20 @@
   }
   
   .image-container {
-    width: 50%;
-    height: 100%;
+    width: 50%;              
+    height: 100%;            
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;     
   }
-  
   
   .image {
-    height: 100%;
-    width: 100%;
-    background: url("../img/Night.png") no-repeat center center;
-    background-size: cover;
+    width: 100%;            
+    height: 100%;         
+    background: url("../img/Night.png") no-repeat center center; 
+    background-size: 100% 100%;
   }
+  
   
   
   .content {
@@ -93,18 +93,21 @@
   }
   
   .luna-meet_image {
-    width: 150px; /* Установите ширину изображения */
-    height: auto; /* Сохраняйте пропорции изображения */
-    object-fit: contain; /* Подгоняет изображение */
-  }
+    background: url("../img/LunaMeet_white_without_background.png") no-repeat center center;
+    background-size: cover;
+    width: 70%;
+
+}
+
+
   
   .frame {
     padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
     width: 100%;
   }
   
@@ -113,7 +116,7 @@
     flex-direction: row;
     gap: 10px;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     width: 100%;
   }
   
@@ -133,9 +136,9 @@
   }
   
   .input {
-    background: #dcdcdc;
+    background: #23262D;
     border-radius: 15px;
-    border: 2px solid #dbdbdb;
+    border: 2px solid #5494FF50;
     padding: 10px;
     width: 100%;
   }
@@ -158,6 +161,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    border: none;
   }
   
   .to-sign-in {
@@ -179,3 +183,42 @@
     color: #2979FF;
   }
   
+  /* Стили для кнопки переключения темы */
+.theme-switcher {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.theme-btn {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.theme-btn:hover {
+  background-color: #2980b9;
+}
+
+
+.round-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.round-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+

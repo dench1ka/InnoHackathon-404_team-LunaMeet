@@ -7,10 +7,16 @@
   <title>Создание события</title>
   <link rel="stylesheet" href="{% static 'css/add_event.css' %}">
   <link rel="stylesheet" href="{% static 'css/popup.css' %}">
+  <script src="{% static 'js/theme.js' %}" defer></script>
 </head>
 <body>
   <div class="container">
     <header>
+      <div class="theme-switcher">
+        <button id="switch-theme-btn" class="round-button">
+            <img id="theme-icon" src="{% static 'img/moon.png' %}" alt="Theme Icon" style="width: 24px; height: 24px;">
+        </button>
+    </div>
       <h1>Создать новое событие</h1>
     </header>
     <main>

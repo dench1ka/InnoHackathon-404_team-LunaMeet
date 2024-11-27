@@ -6,9 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ЛунаMeet</title>
   <link rel="stylesheet" href='{% static "css/main_page.css" %}' />
+  <script src="{% static 'js/theme.js' %}" defer></script>
 </head>
 <body>
   <header>
+    <div class="theme-switcher">
+      <button id="switch-theme-btn" class="round-button">
+          <img id="theme-icon" src="{% static 'img/moon.png' %}" alt="Theme Icon" style="width: 24px; height: 24px;">
+      </button>
+  </div>
     <img src='{% static "img/LunaMeet_without_background.png" %}' alt="ЛунаMeet">
     <div class="search-bar">
       <input type="text" placeholder="Введите текст для поиска">
