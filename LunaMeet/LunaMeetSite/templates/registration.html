@@ -5,10 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign-up Page</title>
-    <link rel="stylesheet" href='{% static "css/registration_page.css" %}' />
+    <!-- Подключаем базовый стиль (по умолчанию темный) -->
+    <link id="theme-style" rel="stylesheet" href="{% static 'css/registration_page_night.css' %}">
     <link rel="stylesheet" href="{% static 'css/popup.css' %}">
 </head>
 <body>
+    <!-- Кнопка переключения темы в верхней части страницы -->
+    <div class="theme-switcher">
+        <button id="switch-theme-btn" class="round-button">
+            <img id="theme-icon" src="{% static 'img/moon.png' %}" alt="Theme Icon" style="width: 24px; height: 24px;">
+        </button>
+    </div>
+
     <div class="registration">
         <div class="image-container">
             <div class="image"></div>
@@ -16,7 +24,7 @@
         <div class="content">
             <div class="block">
                 <div class="head">
-                    <img src='{% static "img/LunaMeet_without_background.png" %}' alt="LunaMeet Logo" class="luna-meet_image">
+                    <img class="luna-meet_image" id="logo">
                 </div>
                 <div class="frame">
                     <div class="head2">
@@ -33,13 +41,14 @@
                         </div>
                     </form>
                     <div class="to-sign-in">
-                        <div class="have-account">Already have an account?</div>
+                        <div class="have-account" id="paragraph">Already have an account?</div>
                         <a href="sign-in" class="sign-in">Sign-in</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="{% static 'js/registration.js' %}"></script>
+    
+    <script src="{% static 'js/theme.js' %}"></script>
 </body>
 </html>
