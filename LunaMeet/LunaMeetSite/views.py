@@ -140,6 +140,29 @@ def show_profile(request):
     return render(request, "profile.html")
 
 
+@csrf_protect
+def add_comment(request: HttpRequest):
+    if request.method == "POST":
+        token = request.POST.get('token')
+        event_id = request.POST.get('event_id')
+        comment = request.POST.get('comment')
+
+        try:
+            token = Token.objects.get(key=token)
+        except Token.DoesNotExist:
+            return JsonResponse({"error": "User doesn't authorize"}, status=403)
+
+        user = token.user
+        event = models.Event.objects.filter(id=event_id).first()
+
+        if not event:
+            return JsonResponse({"error": "User doesn't authorize"}, status=404)
+
+        models.Comments.objects.create(event=event, user=user, text=comment)
+
+        return JsonResponse({}, status=201)
+
+
 def main_page(request):
     if request.method == 'GET':
         categories = models.Category.objects.all()

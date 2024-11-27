@@ -16,6 +16,7 @@ urlpatterns = [
     path('api-user-by-username', views.get_user_by_username),
     path('users', views.user),
     path('search', views.search),
+    path('eventpage/add-comment', views.add_comment),
     path('', views.main_page)
 ]
 

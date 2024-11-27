@@ -1,32 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form');
-
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         const formData = new FormData(form);
+        const parts = window.location.href.split("/");
+        const event_id = parts[parts.length - 1];
+        formData.append('event_id', event_id);
+        formData.append('token', sessionStorage.getItem('authToken'));
 
-        try {
-            const response = await fetch('user-sign-in', {
-                method: 'POST',
+        try{
+            const response = await fetch("add-comment", {
+                method: "POST",
                 body: formData
-            });
+            })
 
             const result = await response.json();
 
-            if (response.ok) {
-                window.location.href = 'http://127.0.0.1:8000';
-                sessionStorage.setItem('authToken', result.token);
-            } else {
-                showPopup(result.error, false);
+            if (response.ok){
+                showPopup("Коментарий опубликован", true);
             }
-        } catch (error) {
-            showPopup('Ошибка сети. Попробуйте снова позже.', false);
+        }
+        catch (error){
+            console.log(error)
+            showPopup("Коментарий не опубликован", false);
         }
     });
-});
+})
 
-// Функция для отображения всплывающего окна
 function showPopup(message, isSuccess) {
     const popup = document.createElement('div');
     popup.className = 'popup';
