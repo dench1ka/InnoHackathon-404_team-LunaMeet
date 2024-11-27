@@ -9,11 +9,13 @@ urlpatterns = [
     path('sign-in', views.show_sign_in, name='login'),
     path('user-sign-up', views.register),
     path('user-sign-in', views.login),
-    path('eventpage', views.show_eventpage),
+    path('eventpage/<int:event_id>', views.show_eventpage, name='eventpage'),
     path('confirm_email/<uidb64>/<token>/', views.confirm_email, name='confirm_email'),
     path('add-event', views.show_add_event),
     path('api-add-event', views.add_event),
     path('api-user-by-username', views.get_user_by_username),
+    path('users', views.user),
+    path('search', views.search),
     path('', views.main_page)
 ]
 

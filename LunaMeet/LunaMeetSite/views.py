@@ -1,4 +1,3 @@
-import json
 from . import models
 from django.urls import reverse
 from django.core.mail import EmailMessage
@@ -130,31 +129,79 @@ def show_sign_in(request):
     return render(request, "login.html")
 
 
-def show_eventpage(request):
-    return render(request, "eventpage.html")
-  
+def show_eventpage(request, event_id):
+    if request.method == "GET":
+        event = models.Event.objects.get(id=event_id)
+        return render(request, "eventpage.html", {"event": event})
+    return JsonResponse({"error": "Invalid request method."}, status=405)
+
 
 def show_profile(request):
     return render(request, "profile.html")
 
 
 def main_page(request):
-    categories = models.Category.objects.all()
+    if request.method == 'GET':
+        categories = models.Category.objects.all()
 
-    categorized_events = []
-    for category in categories:
-        events = models.Event.objects.filter(category=category).order_by('-created_at')[:6]
-        if events.exists():
-            categorized_events.append({
-                "category_name": category.name,
-                "events": events
-            })
+        categorized_events = []
+        for category in categories:
+            events = models.Event.objects.filter(category=category).order_by('-created_at')[:6]
+            if events.exists():
+                categorized_events.append({
+                    "category_name": category.name,
+                    "events": events
+                })
 
-    return render(request, 'main_page.html', {"categorized_events": categorized_events})
+        return render(request, 'main_page.html', {"categorized_events": categorized_events})
+
+    return JsonResponse({"error": "Invalid request method."}, status=405)
+
+def search(request: HttpRequest):
+    if request.method == 'GET':
+        query = request.GET.get('query')
+
+        if query == "None":
+            return render(request, 'search.html', {"events": models.Event.objects.all()})
+
+        events = (
+            models.Event.objects.filter(name__icontains=query) |
+            models.Event.objects.filter(category__name__icontains=query) |
+            models.Event.objects.filter(place__icontains=query)
+        )
+
+        return render(request, 'search.html', {"events": events})
+
+    return JsonResponse({"error": "Invalid request method."}, status=405)
 
 
 def show_add_event(request):
     return render(request, "add_event.html", {"categories": models.Category.objects.all()})
+
+
+def user(request):
+    if request.method == 'GET':
+        token = request.headers.get('Authorization')
+        if not token:
+            return JsonResponse({"error": "Authorization header is missing"}, status=403)
+
+        try:
+            token = Token.objects.get(key=token)
+            user = token.user
+        except Token.DoesNotExist:
+            return JsonResponse({"error": "User doesn't authorize"}, status=403)
+
+        planned_events = user.planed_events_id.all()
+        visited_events = user.visited_events_id.all()
+
+        context = {
+            "user": user,
+            "planned_events": planned_events,
+            "visited_events": visited_events,
+        }
+        return render(request, 'profile.html', context)
+
+    return JsonResponse({"error": "Invalid request method."}, status=405)
 
 
 @csrf_protect
@@ -262,7 +309,6 @@ def add_event(request: HttpRequest):
 
         return JsonResponse({"message": "Event created successfully."}, status=201)
     return JsonResponse({"error": "Invalid request method."}, status=405)
-
 
 
 def get_user_by_username(request: HttpRequest):
