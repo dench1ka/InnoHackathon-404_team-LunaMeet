@@ -202,27 +202,22 @@ def show_add_event(request):
     return render(request, "add_event.html", {"categories": models.Category.objects.all()})
 
 
-def user(request):
-    if request.method == 'GET':
-        token = request.headers.get('Authorization')
-        if not token:
-            return JsonResponse({"error": "Authorization header is missing"}, status=403)
+def user(request, token):
+    try:
+        token = Token.objects.get(key=token)
+        user = token.user
+    except Token.DoesNotExist:
+        return JsonResponse({"error": "User doesn't authorize"}, status=403)
 
-        try:
-            token = Token.objects.get(key=token)
-            user = token.user
-        except Token.DoesNotExist:
-            return JsonResponse({"error": "User doesn't authorize"}, status=403)
+    planned_events = user.planed_events_id.all()
+    visited_events = user.visited_events_id.all()
 
-        planned_events = user.planed_events_id.all()
-        visited_events = user.visited_events_id.all()
-
-        context = {
-            "user": user,
-            "planned_events": planned_events,
-            "visited_events": visited_events,
-        }
-        return render(request, 'profile.html', context)
+    context = {
+        "user": user,
+        "planned_events": planned_events,
+        "visited_events": visited_events,
+    }
+    return render(request, 'profile.html', context)
 
     return JsonResponse({"error": "Invalid request method."}, status=405)
 
