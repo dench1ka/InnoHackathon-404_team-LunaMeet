@@ -179,12 +179,8 @@ def show_add_event(request):
     return render(request, "add_event.html", {"categories": models.Category.objects.all()})
 
 
-def user(request):
+def user(request, token):
     if request.method == 'GET':
-        token = request.headers.get('Authorization')
-        if not token:
-            return JsonResponse({"error": "Authorization header is missing"}, status=403)
-
         try:
             token = Token.objects.get(key=token)
             user = token.user
@@ -323,3 +319,25 @@ def get_user_by_username(request: HttpRequest):
         return JsonResponse({"error": "User doesn't exists."}, status=404)
 
     return JsonResponse({"error": "Invalid request method."}, status=405)
+
+
+def get_user_details_by_token(request: HttpRequest):
+    if request.method == 'GET':
+        token = request.headers.get('Authorization')
+
+        if not token:
+            return JsonResponse({"error": "Authorization header is missing"}, status=403)
+
+        try:
+            token = Token.objects.get(key=token)
+            user = token.user
+        except Token.DoesNotExist:
+            return JsonResponse({"error": "Invalid token."}, status=403)
+
+        return JsonResponse({
+            "username": user.username,
+            "icon": user.icon.url if user.icon else None,
+        }, status=200)
+
+    return JsonResponse({"error": "Invalid request method."}, status=405)
+

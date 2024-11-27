@@ -53,6 +53,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
+    icon = models.ImageField(upload_to='icons/', blank=True)
 
     organized_events_id = models.ManyToManyField('Event', through='Organizers', related_name='organized_event')
     visited_events_id = models.ManyToManyField('Event', through='Visited', related_name='visited_users')

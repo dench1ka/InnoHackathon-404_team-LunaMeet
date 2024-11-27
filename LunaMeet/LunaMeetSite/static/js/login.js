@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showPopup('Ошибка сети. Попробуйте снова позже.', false);
         }
     });
-}
+});
 
 // Функция для отображения всплывающего окна
 function showPopup(message, isSuccess) {

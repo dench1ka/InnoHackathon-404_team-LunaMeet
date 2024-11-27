@@ -4,7 +4,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('profile', views.show_profile),
     path('sign-up', views.show_sign_up),
     path('sign-in', views.show_sign_in, name='login'),
     path('user-sign-up', views.register),
@@ -14,8 +13,9 @@ urlpatterns = [
     path('add-event', views.show_add_event),
     path('api-add-event', views.add_event),
     path('api-user-by-username', views.get_user_by_username),
-    path('users', views.user),
+    path('users/<str:token>', views.user),
     path('search', views.search),
+    path('user-details-by-token', views.get_user_details_by_token),
     path('', views.main_page)
 ]
 
