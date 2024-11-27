@@ -1,228 +1,491 @@
-/* Основные настройки */
-body {
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  background-color: #f9f9f9;
-}
-
 .event-page-day,
 .event-page-day * {
   box-sizing: border-box;
 }
-
 .event-page-day {
   background: #ffffff;
-  padding: 20px;
+  padding: 15px 35px 15px 35px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  align-items: stretch;
-  max-width: 1200px;
-  margin: 20px auto;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  gap: 25px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 1713px;
+  position: relative;
+  overflow: hidden;
 }
-
-/* Название события */
 .frame-2 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.name {
-  font-size: 32px;
-  font-weight: 600;
-  color: #333333;
-}
-
-/* Основной контент */
-.content {
+  padding: 8px 0px 8px 0px;
   display: flex;
   flex-direction: row;
-  gap: 15px;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 1370px;
+  position: relative;
+  overflow: hidden;
 }
-
+.name {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  position: relative;
+  flex: 1;
+  height: 48px;
+}
+.content {
+  padding: 20px 0px 20px 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 602px;
+  position: relative;
+}
 .image {
   background: #dedede;
-  border-radius: 10px;
-  flex: 2;
-  height: 300px;
+  border-radius: 15px;
+  flex-shrink: 0;
+  width: 900px;
+  height: 560px;
+  position: relative;
+  overflow: hidden;
 }
-
 .owners {
   background: #d9d9d9;
-  border-radius: 10px;
+  border-radius: 15px;
   flex: 1;
-  height: 300px;
+  height: 560px;
+  position: relative;
+  overflow: hidden;
 }
-
-/* Регистрация */
 .reg {
+  padding: 10px 0px 10px 0px;
   display: flex;
   flex-direction: row;
+  gap: 25px;
   align-items: center;
-  gap: 10px;
+  justify-content: flex-end;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 80px;
+  position: relative;
+  overflow: hidden;
 }
-
-.reg>*{
-    margin-left: 10px;
-}
-
 .category {
-  font-size: 18px;
-  font-weight: 500;
-  color: #333333;
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  position: relative;
+  width: 657px;
 }
-
 .dd-mm-yyyy-dd-mm-yyyy {
-  font-size: 16px;
-  font-weight: 400;
   color: #888888;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  position: relative;
 }
-
 .list {
   background: #2979ff;
-  border-radius: 8px;
-  padding: 5px 10px;
-  color: #ffffff;
+  border-radius: 15px;
+  padding: 15px 10px 15px 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
 }
-
-.select {
-  font-size: 16px;
-  background-color: #2979ff;
+.div {
   color: #ffffff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  position: relative;
 }
-
-/* Кнопка регистрации */
+.chevron-down {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  position: relative;
+  overflow: visible;
+}
 .button {
   background: #2979ff;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 16px;
-  text-align: center;
-  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  flex-shrink: 0;
+  width: 330px;
+  position: relative;
+  overflow: hidden;
 }
-
-.button:hover {
-  background-color: #1a5fb8;
+.div2 {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  position: relative;
 }
-
-/* Информация */
 .info {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 45px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
 }
-
-.desc, .plan {
-  flex: 1;
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 45px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
 }
-
-.description, .plan2 {
-  font-size: 20px;
-  font-weight: 600;
+.desc {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 634px;
+  height: 322px;
+  position: relative;
+  overflow: hidden;
 }
-
-.div3 {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #595959;
-}
-
-/* Список событий */
-.event {
+.head {
+  padding: 13px 0px 13px 0px;
   display: flex;
   flex-direction: row;
   gap: 10px;
-  font-size: 14px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
 }
-
-/* Комментарии */
+.description {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  position: relative;
+}
+.content2 {
+  padding: 10px 0px 10px 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.div3 {
+  color: #595959;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  position: relative;
+  flex: 1;
+  height: 232px;
+}
+.plan {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.plan2 {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  position: relative;
+}
+.content3 {
+  padding: 0px 5px 0px 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.event {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.date {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.dd-mm-yyyy {
+  color: #6d6d6d;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  position: relative;
+}
+.text {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.start {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  position: relative;
+}
+.event2 {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  position: relative;
+}
+.end {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  position: relative;
+}
 .comments {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 25px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
 }
-
+.head2 {
+  padding: 10px 0px 10px 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
 .comments2 {
-  font-size: 20px;
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 36px;
   font-weight: 600;
+  position: relative;
+}
+.content4 {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.comment {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.user {
+  padding: 0px 10px 0px 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 50px;
+  position: relative;
+  overflow: hidden;
+}
+.icon {
+  background: #d5d5d5;
+  border-radius: 29px;
+  align-self: stretch;
+  flex-shrink: 0;
+  width: 50px;
+  position: relative;
+  overflow: hidden;
+}
+.user2 {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  position: relative;
+}
+.text2 {
+  padding: 0px 10px 0px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.div4 {
+  color: #444444;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+  align-self: stretch;
+  height: 136px;
 }
 
 .comment-input {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: left;
+  justify-content: flex-start;
+  margin-top: 20px;
 }
 
 .comment-input input {
+  width: 100%;
+  min-width: 1000px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 16px;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.comment-input input:focus {
+  border-color: #2979ff;
 }
 
 .comment-input button {
-  background: #2979ff;
-  color: white;
-  padding: 10px;
+  width: 20%;
+  height: 45px;
+  padding: 10px 20px;
+  background-color: #2979ff;
   border: none;
   border-radius: 5px;
+  color: white;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 20px;
   cursor: pointer;
-  font-weight: bold;
-}
-
-.event-photo {
-    width: 100%;
-    max-width: 600px; /* Ограничиваем максимальную ширину */
-    height: auto;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border-radius: 8px;
-}
-
-.image {
-    max-width: 100%; /* Максимальная ширина изображения не больше 100% от родителя */
-    display: flex;
-    justify-content: center; /* Центрируем изображение по горизонтали */
-    overflow: hidden; /* Если изображение слишком большое, скрываем лишнее */
-}
-
-.comment-btn{
-    width: 10%;
-}
-
-.image-placeholder {
-    text-align: center;
-    color: #888;
-    font-size: 18px;
-    padding: 20px;
+  transition: background-color 0.3s ease;  
+  border-radius: 10px;
+  
 }
 
 .comment-input button:hover {
-  background: #1a5fb8;
+  background-color: #1a5fb8;
 }
 
-/* Отдельный комментарий */
-.comment {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #f5f5f5;
+.comment-input button:active {
+  background-color: #164a91;
 }
 
-.user2 {
-  font-size: 16px;
-  font-weight: 500;
+
+.select {
+  color: #ffffff;
+  font-size: 25px;
+  background-color: #2979FF;
+  border: none;
+  font-family: 'inter', sans-serif;
+  
 }
 
-.div4 {
-  font-size: 14px;
-  color: #444444;
+.select, option, .comment-input button {
+  font-weight: bold;
 }
