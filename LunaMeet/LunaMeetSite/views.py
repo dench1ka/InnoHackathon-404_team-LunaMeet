@@ -205,6 +205,7 @@ def show_add_event(request):
 def user(request, token):
     try:
         token = Token.objects.get(key=token)
+        print(token)
         user = token.user
     except Token.DoesNotExist:
         return JsonResponse({"error": "User doesn't authorize"}, status=403)

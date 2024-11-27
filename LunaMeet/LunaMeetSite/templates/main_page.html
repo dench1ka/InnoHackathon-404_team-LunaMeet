@@ -21,7 +21,7 @@
     </div>
     <div class="actions">
       <button class="create-btn">Создать объявление</button>
-      <button>Вход</button>
+      <button id="login-button">Вход</button>
     </div>
   </header>
   <div class="container">
@@ -37,7 +37,7 @@
               {% endfor %}
             </div>
             <div class="text-container">
-              <h3>{{ event.name }}</h3>
+              <a href="{% url 'eventpage' event.id %}" class="event-title">{{ event.name }}</a>
               <p>
                 {{ event.first_timecode|date:"d.m.Y" }} -
                 {{ event.last_timecode|date:"d.m.Y" }}

@@ -13,7 +13,7 @@ urlpatterns = [
     path('add-event', views.show_add_event),
     path('api-add-event', views.add_event),
     path('api-user-by-username', views.get_user_by_username),
-    path('users:<str:token>', views.user),
+    path('users/<str:token>', views.user),
     path('search', views.search),
     path('user-details-by-token', views.get_user_details_by_token),
     path('eventpage/add-comment', views.add_comment),

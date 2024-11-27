@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok){
                 showPopup("Коментарий опубликован", true);
             }
+            else if (response.status === 403){
+                showPopup("Коментарий не опубликован, войдите в аккаунт.", true);
+            }
         }
         catch (error){
             console.log(error)
