@@ -1,3 +1,4 @@
+import json
 from . import models
 from django.urls import reverse
 from django.core.mail import EmailMessage
@@ -7,7 +8,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework.authtoken.models import Token
 from django.http import HttpRequest, JsonResponse
 from django.core.exceptions import ValidationError
-from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
@@ -330,6 +331,45 @@ def add_event(request: HttpRequest):
     return JsonResponse({"error": "Invalid request method."}, status=405)
 
 
+@csrf_exempt
+def mark_event(request: HttpRequest):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            mark = data.get("value")
+            event_id = data.get("event_id")
+        except json.JSONDecodeError:
+            return JsonResponse({"error": "Invalid JSON."}, status=400)
+        token = request.headers.get("Authorization")
+
+        try:
+            event = models.Event.objects.get(id=event_id)
+        except models.Event.DoesNotExist:
+            return JsonResponse({"error": "Event doesn't exist."}, status=404)
+
+        try:
+            token = Token.objects.get(key=token)
+            user = token.user
+        except Token.DoesNotExist:
+            return JsonResponse({"error": "Invalid token."}, status=403)
+
+        if mark == "Не был(а)":
+            item = models.Planed.objects.filter(user=user)
+            if item.exists():
+                item.delete()
+
+            item = models.Visited.objects.filter(user=user)
+            if item.exists():
+                item.delete()
+        elif mark == "Был(а)":
+            models.Visited.objects.create(user=user, event=event)
+        elif mark == "Планирую":
+            models.Planed.objects.create(user=user, event=event)
+
+        return JsonResponse({"message": "Mark was changed."}, status=200)
+
+    return JsonResponse({"error": "Invalid request method."}, status=405)
+
 def get_user_by_username(request: HttpRequest):
     if request.method == 'GET':
         username = request.GET.get('username')
@@ -357,9 +397,17 @@ def get_user_details_by_token(request: HttpRequest):
         except Token.DoesNotExist:
             return JsonResponse({"error": "Invalid token."}, status=403)
 
+        if models.Planed.objects.filter(user=user).exists():
+            mark = "Планирую"
+        elif models.Visited.objects.filter(user=user).exists():
+            mark = "Был(а)"
+        else:
+            mark = "Не был(а)"
+
         return JsonResponse({
             "username": user.username,
             "icon": user.icon.url if user.icon else None,
+            "mark": mark
         }, status=200)
 
     return JsonResponse({"error": "Invalid request method."}, status=405)

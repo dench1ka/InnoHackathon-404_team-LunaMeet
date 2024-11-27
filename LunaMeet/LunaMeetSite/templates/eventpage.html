@@ -52,13 +52,16 @@
       <div class="place">Place: {{ event.place }}</div>
     </div>
     <div class="reg-block">
-      <div class="list">
-        <select class="select">
-          <option value="Не был(а)">Не был(а)</option>
-          <option value="Был(а)">Был(а)</option>
-          <option value="Планирую">Планирую</option>
-        </select>
-      </div>
+      <form id="form_select">
+        {% csrf_token %}
+        <div class="list">
+            <select class="select" id="select" >
+              <option value="Не был(а)">Не был(а)</option>
+              <option value="Был(а)">Был(а)</option>
+              <option value="Планирую">Планирую</option>
+            </select>
+        </div>
+      </form>
       <div class="button">Зарегистрироваться</div>
     </div>
   </div>
