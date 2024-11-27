@@ -10,7 +10,41 @@
     width: 100%;
     overflow: hidden; /* Убираем прокрутку */
   }
-
+  .theme-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .round-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .round-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .theme-btn {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .theme-btn:hover {
+    background-color: #2980b9;
+  }
   .login,
   .login * {
     box-sizing: border-box;
@@ -117,7 +151,7 @@
     flex-direction: row;
     gap: 10px;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
   }
 

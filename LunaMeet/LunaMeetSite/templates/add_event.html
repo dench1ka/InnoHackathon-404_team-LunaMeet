@@ -7,43 +7,80 @@
   <title>Создание события</title>
   <link rel="stylesheet" href="{% static 'css/add_event.css' %}">
   <link rel="stylesheet" href="{% static 'css/popup.css' %}">
-  <script src="{% static 'js/theme.js' %}" defer></script>
+  <script src="{% static 'js/theme.js' %}"defer></script>
+  <style>
+            body {
+
+background-color: white;
+            
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-theme {
+          background-color: black;
+        }
+         .theme-toggle {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            background: none;
+        }
+
+        .theme-toggle img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .theme-toggle img.active {
+            transform: rotate(360deg);
+        }
+  </style>
 </head>
+
 <body>
-  <div class="container">
+  <div class="container" id="block">
     <header>
       <div class="theme-switcher">
-        <button id="switch-theme-btn" class="round-button">
-            <img id="theme-icon" src="{% static 'img/moon.png' %}" alt="Theme Icon" style="width: 24px; height: 24px;">
+        <button id="theme-toggle" class="theme-toggle">
+            <img id="theme-icon"  alt="Theme Icon" style="width: 24px; height: 24px;">
         </button>
     </div>
-      <h1>Создать новое событие</h1>
+      <h1 class="text">Создать новое событие</h1>
     </header>
     <main>
       <form id="eventForm">
-        {% csrf_token %}
+	      {% csrf_token %}
         <div class="form-group">
-          <label for="eventName">Название события:</label>
+          <label for="eventName" class="text">Название события:</label>
           <input type="text" id="eventName" name="name" placeholder="Введите название" required>
         </div>
         <div class="form-group">
-          <label for="eventDescription">Описание:</label>
+          <label for="eventDescription" class="text">Описание:</label>
           <textarea id="eventDescription" name="description" rows="4" placeholder="Введите описание" required></textarea>
         </div>
         <div class="form-group">
+
           <label for="place">Место проведения:</label>
           <input type="text" id="place" name="place" placeholder="Введите место проведения" required>
         </div>
         <div class="form-group">
           <label for="eventCategory">Категория:</label>
+
+          <label for="eventCategory" class="text">Категория:</label>
+
           <select id="eventCategory" name="category" required>
-            {% for category in categories %}
-              <option value="{{ category.id }}">{{ category.name }}</option>
-            {% endfor %}
+	          {% for category in categories %}
+              <option value="{{ category.id }}"></option>
+	          {% endfor %}
           </select>
         </div>
         <div class="form-group">
-          <label for="organizerInput">Организаторы:</label>
+          <label for="organizerInput" class="text">Организаторы:</label>
           <div class="input-row">
             <input type="text" id="organizerInput" placeholder="Введите имя организатора">
             <button type="button" id="addOrganizer">Добавить</button>
@@ -51,17 +88,17 @@
           <ul id="organizerList"></ul>
         </div>
         <div class="form-group">
-          <label>Расписание:</label>
+          <label class="text">Расписание:</label>
           <div class="input-row">
             <input type="text" id="timecodName" placeholder="Название">
             <input type="date" id="timecodDate">
-            <button type="button" id="addTimecod">Добавить</button>
+            <button type="button" id="addTimecod" >Добавить</button>
           </div>
           <ul id="timecodList"></ul>
         </div>
         <div class="form-group">
-          <label for="images">Изображения:</label>
-          <input type="file" id="images" name="photos" accept="image/*" multiple>
+          <label for="images" class="text">Изображения:</label>
+          <input type="file"  id="images" name="photos" accept="image/*" multiple>
           <div id="imagePreview"></div>
         </div>
         <div class="form-group">

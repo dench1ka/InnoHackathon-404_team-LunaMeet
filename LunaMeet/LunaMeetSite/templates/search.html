@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
+
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ЛунаMeet</title>
+
   <link rel="stylesheet" href='{% static "css/main_page.css" %}' />
 </head>
 <body>
@@ -12,11 +16,66 @@
   <header class="header">
     <div class="logo">
       <a href="http://127.0.0.1:8000/"><img src='{% static "img/LunaMeet_without_background.png" %}' alt="ЛунаMeet"></a>
+
+  <link rel="stylesheet" href="{% static 'css/main_page.css' %}" />
+  <script src="{% static 'js/theme.js' %}" defer></script>
+
+  <style>
+    body {
+
+      background-color: white;
+
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-theme {
+      background-color: #1B1D23;
+    }
+
+    .theme-toggle {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      background: none;
+    }
+
+    .theme-toggle img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.5s ease;
+    }
+
+    .theme-toggle img.active {
+      transform: rotate(360deg);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Шапка сайта -->
+  <header class="header" id="header">
+    <div class="theme-switcher">
+      <button id="theme-toggle" class="theme-toggle">
+          <img id="theme-icon"  alt="Theme Icon" style="width: 24px; height: 24px;">
+      </button>
+  </div>
+    <div class="logo">
+      <img class="luna-meet_image" id="logo">
+
     </div>
     <div class="search-bar">
       <input type="text" placeholder="Поиск мероприятий..." id="search-input" autocomplete="off">
       <button class="search-btn" id="search-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
@@ -24,7 +83,11 @@
     </div>
     <div class="actions">
       <button class="create-btn">Создать объявление</button>
+
       <button class="login-btn" id="login-btn">Вход</button>
+
+      <button class="login-btn">Вход</button>
+
     </div>
   </header>
 
@@ -35,17 +98,30 @@
       <article class="card">
         <div class="image-container">
           {% if event.photos.all %}
+
             <img src="{{ event.photos.first.photo.url }}" alt="Card Image">
           {% else %}
             <img src="{% static 'img/default_event_image.jpg' %}" alt="Default Image">
+
+          <img src="{{ event.photos.first.photo.url }}" alt="Card Image">
+          {% else %}
+          <img src="{% static 'img/default_event_image.jpg' %}" alt="Default Image">
+
           {% endif %}
         </div>
         <div class="text-container">
           <a href="{% url 'eventpage' event.id %}" class="event-title">{{ event.name }}</a>
+
           <p class="event-dates">
             {{ event.first_timecode|date:"d.m.Y" }} - {{ event.last_timecode|date:"d.m.Y" }}
           </p>
           <p class="event-location">{{ event.place }}</p>
+
+          <p class="event-dates" id="text">
+            {{ event.first_timecode|date:"d.m.Y" }} - {{ event.last_timecode|date:"d.m.Y" }}
+          </p>
+          <p class="event-location" id="text">{{ event.place }}</p>
+
         </div>
       </article>
       {% endfor %}
@@ -54,5 +130,12 @@
 
   <!-- Подключение скриптов -->
   <script src="{% static 'js/mainpage.js' %}"></script>
+
 </body>
 </html>
+
+  
+</body>
+
+</html>
+

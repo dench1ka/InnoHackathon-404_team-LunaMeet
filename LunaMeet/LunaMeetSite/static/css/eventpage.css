@@ -23,7 +23,14 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Название события */
+.theme-switcher{
+  
+  position: absolute;
+  top: 20px;
+  right: 0%;
+  z-index: 1000;
+  }
+
 .frame-2 {
   display: flex;
   align-items: center;

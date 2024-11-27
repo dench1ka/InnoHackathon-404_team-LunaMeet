@@ -5,42 +5,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LunaMeet</title>
-    <link rel="stylesheet" href='{% static "css/login.css" %}' /> <!-- Подключение CSS -->
-    
-    <link  rel="stylesheet" href="{% static 'css/popup.css' %}">
+  <link rel="stylesheet" href="{% static 'css/registration_page.css' %}" /> <!-- Подключение CSS -->  
+  <link rel="stylesheet" href="{% static 'css/login.css' %}" /> <!-- Подключение CSS -->
+  <style>
+            body {
+            color: white;
+            
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-theme {
+            color: black;
+        }
+
+        .theme-toggle {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            background: none;
+        }
+
+        .theme-toggle img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .theme-toggle img.active {
+            transform: rotate(360deg);
+        }
+  </style>
 </head>
 <body>
   <div class="theme-switcher">
-    <button id="switch-theme-btn" class="round-button">
-        <img id="theme-icon" src="{% static 'img/moon.png' %}" alt="Theme Icon" style="width: 24px; height: 24px;">
+    <button id="theme-toggle" class="theme-toggle">
+        <img id="theme-icon"  alt="Theme Icon" style="width: 24px; height: 24px;">
     </button>
 </div>
   <div class="login">
     <div class="image-container">
-      <div class="image">
-
-      </div>
+      <div class="image"><img class="image" id="dark-mode-icon" alt=""></div>
     </div>
-    <div class="content">
-      <div class="block">
+    <div class="content" id="content">
+      <div class="block" id="block">
         <div class="head">
-<!--          <img src='{% static "img/LunaMeet_without_background.png" %}' alt="LunaMeet Logo" class="luna-meet_image">-->
-        </div>
+          <img class="luna-meet_image" id="logo">
+        </div>      
         <div class="frame">
           <div class="head2">
-            <div class="sign-in">Sign-in</div>
+            <div class="sign-in text">Sign-in</div>
           </div>
           <form id="form" action="/user-sign-in" method="post">
             <div class="main">
               {% csrf_token %}
               <input type="text" class="input email" name="email" placeholder="Email...">
               <input type="password" class="input password" name="password" placeholder="Password...">
-              <button type="submit" class="button">Sign-in</button>
+              <button type="submit" class="button" id="btn">Sign-in</button>
             </div>
           </form>
           <div class="to-sign-up">
-            <div class="no-account">No account?</div>
-            <a href="sign-up" class="sign-up">Sign-up</a>
+            <div class="no-account text">No account?</div>
+            <a href="sign-up" class="sign-up text">Sign-up</a>
           </div>
         </div>
       </div>
