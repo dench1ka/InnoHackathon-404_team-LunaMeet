@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Min, Max
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 
 # Create your models here.
@@ -75,6 +76,7 @@ class Category(models.Model):
 class Event(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=1000)
+    place = models.CharField(max_length=100, default='')
 
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, blank=True)
     organizers_id = models.ManyToManyField(User, through='Organizers', related_name='organized_events')
@@ -83,11 +85,16 @@ class Event(models.Model):
     commented_users_id = models.ManyToManyField(User, through='Comments', related_name='commented_events')
     created_at = models.DateTimeField(auto_now=True)
 
+    def first_timecode(self):
+        return self.time_codes.aggregate(Min('time'))['time__min']
+
+    def last_timecode(self):
+        return self.time_codes.aggregate(Max('time'))['time__max']
 
 class TimeCod(models.Model):
     time = models.DateTimeField()
     name = models.CharField(max_length=50)
-    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name="time_cods")
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name="time_codes")
 
     def __str__(self):
         return f"{self.time} : {self.name}"

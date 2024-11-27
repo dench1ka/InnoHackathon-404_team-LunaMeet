@@ -139,7 +139,18 @@ def show_profile(request):
 
 
 def main_page(request):
-    return render(request, 'main_page.html')
+    categories = models.Category.objects.all()
+
+    categorized_events = []
+    for category in categories:
+        events = models.Event.objects.filter(category=category).order_by('-created_at')[:6]
+        if events.exists():
+            categorized_events.append({
+                "category_name": category.name,
+                "events": events
+            })
+
+    return render(request, 'main_page.html', {"categorized_events": categorized_events})
 
 
 def show_add_event(request):
@@ -206,11 +217,12 @@ def register(request: HttpRequest):
 
 
 @csrf_protect
-def add_event(request):
+def add_event(request: HttpRequest):
     if request.method == 'POST':
         # Получаем обычные поля формы
         name = request.POST.get('name')
         description = request.POST.get('description')
+        place = request.POST.get('place')
         category = request.POST.get('category')
         category = models.Category.objects.get(id=category)
 
@@ -219,13 +231,14 @@ def add_event(request):
         timecods = request.POST.getlist('timecods[]')      # Список временных меток
 
         # Получаем файлы
-        photos = request.FILES.getlist('photos[]')  # Список файлов
+        photos = request.FILES.getlist('photos')  # Список файлов
 
         # Создаем событие
         event = models.Event.objects.create(
             name=name,
             description=description,
-            category=category
+            place=place,
+            category=category,
         )
 
         event.save()

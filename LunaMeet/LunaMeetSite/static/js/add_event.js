@@ -83,6 +83,8 @@ document.addEventListener('DOMContentLoaded', function() {
             formData.append('timecods[]', timecodText);
         }
 
+        console.log(formData);
+
         try {
             const response = await fetch("http://127.0.0.1:8000/api-add-event", {
                 method: 'POST',
