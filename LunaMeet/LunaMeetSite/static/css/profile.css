@@ -1,32 +1,28 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Inter-Regular", sans-serif;
-  background-color: #f5f5f5;
-}
-
 .profile,
 .profile * {
   box-sizing: border-box;
 }
-
-/* Основной контейнер профиля */
 .profile {
   background: #ffffff;
-  margin: 20px auto;
-  padding: 30px;
+  padding: 0px 30px 30px 30px;
   display: flex;
   flex-direction: row;
   gap: 30px;
   align-items: flex-start;
   justify-content: flex-start;
-  max-width: 1200px;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
   overflow: hidden;
 }
-
-/* Левый блок профиля */
+.body {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
 .profily {
   padding: 60px 0px 10px 0px;
   display: flex;
@@ -34,174 +30,270 @@ body {
   gap: 20px;
   align-items: center;
   justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
   width: 450px;
   position: relative;
+  overflow: hidden;
 }
-
-/* Аватар пользователя */
 .icon {
   background: #b7b7b7;
-  border-radius: 100%;
+  border-radius: 1000px;
+  flex-shrink: 0;
   width: 300px;
   height: 300px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-.icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Информация о пользователе */
 .info {
-  padding: 0 20px;
+  padding: 0px 0px 0px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.field {
+  padding: 0px 10px 0px 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.name {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.name2 {
+  color: #656565;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  position: relative;
+}
+.value {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.akkevilli {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+}
+.field2 {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.email {
+  color: #656565;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  position: relative;
+}
+.email-gmail-com {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+}
+.field3 {
+  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 100%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
 }
-
-.field {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.name2,
-.email,
 .description {
   color: #656565;
-  font-size: 20px;
-  font-weight: 500;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  position: relative;
 }
-
-.akkevilli,
-.email-gmail-com,
+.value2 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
 .div {
   color: #000000;
-  font-size: 18px;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 24px;
   font-weight: 400;
+  position: relative;
+  flex: 1;
 }
-
-/* Контент событий */
 .content {
-  padding: 20px 0;
+  padding: 60px 0px 10px 0px;
   display: flex;
   flex-direction: column;
   gap: 50px;
+  align-items: flex-start;
+  justify-content: flex-start;
   flex: 1;
+  position: relative;
+  overflow: hidden;
 }
-
-/* Блок секций событий */
 .block {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 100%;
-}
-
-.head {
-  font-size: 24px;
-  font-weight: 600;
-  color: #333;
-  border-bottom: 2px solid #3d3d3d;
-  padding-bottom: 10px;
-}
-
-.content2 {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
+  gap: 10px;
+  align-items: flex-start;
   justify-content: flex-start;
-}
-
-/* Карточка события */
-.card {
-  background: #ffffff;
-  border-radius: 10px;
-  width: 200px;
-  height: 300px;
+  align-self: stretch;
+  flex-shrink: 0;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
 }
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: center;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 50px;
+  position: relative;
 }
-
-.gomel,
-._22-11-2024-29-11-2024,
-.innowise-hacaton {
-  position: absolute;
-  left: 10px;
-  color: #333;
-}
-
-.gomel {
-  top: 240px;
-  font-size: 14px;
+.planned {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 36px;
   font-weight: 600;
+  position: relative;
 }
-
-._22-11-2024-29-11-2024 {
-  top: 220px;
-  font-size: 12px;
-  font-weight: 400;
-}
-
-.innowise-hacaton {
-  top: 200px;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-/* Изображение события */
-.image {
-  border-radius: 10px;
-  width: 180px;
-  height: 180px;
-  margin: 10px auto 0;
+.content2 {
+  padding: 0px 25px 0px 25px;
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: center;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
   overflow: hidden;
 }
-
-.image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.card {
+  background: #e7e7e7;
+  flex-shrink: 0;
+  width: 160px;
+  height: 260px;
+  position: relative;
+  overflow: hidden;
 }
-
-/* Адаптивность */
-@media (max-width: 768px) {
-  .profile {
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
+.gomel {
+  color: #515151;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  position: absolute;
+  left: 10px;
+  top: 229.5px;
+}
+._22-11-2024-29-11-2024 {
+  color: #3d3d3d;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  position: absolute;
+  left: 10px;
+  top: 207.5px;
+}
+.innowise-hacaton {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  position: absolute;
+  left: 10px;
+  top: 183.5px;
+  width: 140px;
+}
+.image {
+    background: linear-gradient(
+      216.08deg,
+      rgba(12, 152, 152, 1) 0%,
+      rgba(194, 194, 194, 1) 100%
+    );
+    border-radius: 5px;
+    width: 140px;  /* Ширина контейнера */
+    height: 164px; /* Высота контейнера */
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    overflow: hidden;  /* Обрезать изображение, если оно выходит за пределы */
   }
-
-  .profily {
+  
+  .image img {
     width: 100%;
-    align-items: center;
+    height: 100%;
+    object-fit: cover;  /* Изображение будет растягиваться/обрезаться, чтобы полностью заполнить контейнер */
   }
-
-  .content {
-    padding: 0;
-  }
-
-  .card {
-    width: 100%;
-    height: auto;
-  }
-
-  .image {
-    width: 100%;
-    height: auto;
-  }
+  
+.visited {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  position: relative;
 }

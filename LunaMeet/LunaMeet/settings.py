@@ -125,7 +125,7 @@ USE_I18N = True
 USE_TZ = True
 
 # MEDIA
-MEDIA_URL = 'media/'  # URL, через который файлы будут доступны
+MEDIA_URL = '/media/'  # URL, через который файлы будут доступны
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Физическая директория для хранения файлов
 
 # Static files (CSS, JavaScript, Images)

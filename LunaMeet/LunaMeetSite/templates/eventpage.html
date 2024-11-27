@@ -4,103 +4,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ event.name }}</title>
-    <link rel="stylesheet" href="{% static 'css/eventpage.css' %}">
+    <title>Sign-up Page</title>
+    <link rel="stylesheet" href='{% static "css/eventpage.css" %}' />
 </head>
 <body>
 <div class="event-page-day">
-  <!-- Заголовок события -->
-  <div class="frame-2">
-    <div class="name">{{ event.name }}</div>
-  </div>
-
-  <!-- Контент события -->
-  <div class="content">
-    <div class="image">
-      <!-- Отображение картинок события -->
-      {% if event.photos.all %}
-        {% for photo in event.photos.all %}
-          <img src="{{ photo.photo.url }}" alt="Event Photo" class="event-photo" />
-        {% endfor %}
-      {% else %}
-        <p>No event photos available.</p>
-      {% endif %}
+    <div class="frame-2">
+      <div class="name">Name</div>
     </div>
-
-    <div class="owners">
-      <p>Organizers:</p>
-      {% for organizer in event.organizers_id.all %}
-        <p>{{ organizer.username }}</p>
-      {% empty %}
-        <p>No organizers assigned.</p>
-      {% endfor %}
+    <div class="content">
+      <div class="image"></div>
+      <div class="owners"></div>
     </div>
-  </div>
-
-  <!-- Регистрация и категория события -->
-  <div class="reg">
-    <div class="category">Category: {{ event.category.name }}</div>
-    <div class="place">Place: {{ event.place }}</div>
-    <div class="dd-mm-yyyy-dd-mm-yyyy">{{ event.created_at|date:"d.m.Y" }}</div>
-    <div class="list">
-      <select class="select">
-        <option value="Не был(а)">Не был(а)</option>
-        <option value="Был(а)">Был(а)</option>
-        <option value="Планирую">Планирую</option>
-      </select>
+    <div class="reg">
+      <div class="category">Category:</div>
+      <div class="dd-mm-yyyy-dd-mm-yyyy">dd.mm.yyyy - dd.mm.yyyy</div>
+      <div class="list">
+        <select class="select"><option value="Не был(а)">Не был(а)</option><option value="Был(а)">Был(а)</option><option value="Планирую">Планирую</option></select>
+        <!-- <img class="chevron-down" src="chevron-down0.svg" /> -->
+      </div>
+      <div class="button">
+        <div class="div2">Зарегестрироваться</div>
+      </div>
     </div>
-    <div class="button">Зарегистрироваться</div>
-  </div>
-
-  <!-- Описание события -->
-  <div class="info">
-    <div class="desc">
-      <div class="description">Description</div>
-      <div class="div3">{{ event.description }}</div>
-    </div>
-
-    <!-- План мероприятия -->
-    <div class="plan">
-      <div class="plan2">Plan</div>
-      {% if event.time_codes.all %}
-        <div class="event">
-          <div>Event Plan:</div>
-          <ul>
-            {% for timecod in event.time_codes.all %}
-              <li>{{ timecod.time|date:"d.m.Y H:i" }} - {{ timecod.name }}</li>
-            {% endfor %}
-          </ul>
+    <div class="info">
+      <div class="row">
+        <div class="desc">
+          <div class="head">
+            <div class="description">Description</div>
+          </div>
+          <div class="content2">
+            <div class="div3">
+              Задача организации, в особенности же реализация намеченных плановых
+              заданий играет важную роль в формировании направлений прогрессивного
+              развития. Задача организации, в особенности же постоянное
+              информационно-пропагандистское обеспечение нашей деятельности
+              позволяет оценить значение соответствующий условий активизации.
+              Товарищи! рамки и место обучения кадров требуют
+            </div>
+          </div>
         </div>
-      {% else %}
-        <p>No event plan available.</p>
-      {% endif %}
-    </div>
-  </div>
-
-  <!-- Комментарии -->
-  <div class="comments">
-    <div class="comments2">Comments</div>
-    <div class="comment-input">
-      <input type="text" placeholder="Введите комментарий..." />
-      <button class="comment-btn">Добавить</button>
-    </div>
-
-    <!-- Отображение комментариев пользователей -->
-    {% for comment in event.commented_users_id.all %}
-      <div class="comment">
-        <div class="user">
-          <div class="user2">{{ comment.username }}</div>
-        </div>
-        <div class="div4">
-          {% with comment.comments_set.first as user_comment %}
-            {{ user_comment.text }}
-          {% endwith %}
+        <div class="plan">
+          <div class="head">
+            <div class="plan2">Plan</div>
+          </div>
+          <div class="content3">
+            <div class="event">
+              <div class="date">
+                <div class="dd-mm-yyyy">dd.mm.yyyy</div>
+              </div>
+              <div class="text">
+                <div class="start">Start</div>
+              </div>
+            </div>
+            <div class="event">
+              <div class="date">
+                <div class="dd-mm-yyyy">dd.mm.yyyy</div>
+              </div>
+              <div class="text">
+                <div class="event2">Event</div>
+              </div>
+            </div>
+            <div class="event">
+              <div class="date">
+                <div class="dd-mm-yyyy">dd.mm.yyyy</div>
+              </div>
+              <div class="text">
+                <div class="event2">Event</div>
+              </div>
+            </div>
+            <div class="event">
+              <div class="date">
+                <div class="dd-mm-yyyy">dd.mm.yyyy</div>
+              </div>
+              <div class="text">
+                <div class="event2">Event</div>
+              </div>
+            </div>
+            <div class="event">
+              <div class="date">
+                <div class="dd-mm-yyyy">dd.mm.yyyy</div>
+              </div>
+              <div class="text">
+                <div class="end">End</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    {% empty %}
-      <p>Нет комментариев.</p>
-    {% endfor %}
+    </div>
+    <div class="comments">
+      <div class="head2">
+        <div class="comments2">Comments</div>
+      </div>
+      <div class="comment-input">
+        <input type="text" placeholder="Введите комментарий..." />
+        <button>Добавить</button>
+      </div>      
+      
+      <div class="content4">
+        <div class="comment">
+          <div class="user">
+            <div class="icon"></div>
+            <div class="user2">user</div>
+          </div>
+          <div class="text2">
+            <div class="div4">
+              Есть над чем задуматься: стремящиеся вытеснить традиционное
+              производство, нанотехнологии неоднозначны и будут своевременно
+              верифицированы. Также как постоянное информационно-пропагандистское
+              обеспечение нашей деятельности говорит о возможностях новых
+              предложений.
+            </div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="user">
+            <div class="icon"></div>
+            <div class="user2">user</div>
+          </div>
+          <div class="text2">
+            <div class="div4">
+              Есть над чем задуматься: стремящиеся вытеснить традиционное
+              производство, нанотехнологии неоднозначны и будут своевременно
+              верифицированы. Также как постоянное информационно-пропагандистское
+              обеспечение нашей деятельности говорит о возможностях новых
+              предложений.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 </body>
-</html>
+</html> 
