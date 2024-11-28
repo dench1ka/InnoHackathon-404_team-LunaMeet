@@ -78,13 +78,11 @@
 
     <!-- Регистрация и категория события -->
     <div class="reg">
-        <div class="reg-block">
+        <div class="info-block">
             <div class="category text">Категория: {{ event.category.name }}</div>
-        </div>
-        <div class="reg-block">
             <div class="place">Место: {{ event.place }}</div>
         </div>
-        <div class="reg-block">
+        <div class="select-block">
             <form id="form_select">
                 {% csrf_token %}
                 <div class="list">
@@ -95,7 +93,6 @@
                     </select>
                 </div>
             </form>
-            <div class="button">Зарегистрироваться</div>
         </div>
     </div>
 
