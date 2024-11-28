@@ -192,7 +192,7 @@ def search(request: HttpRequest):
             models.Event.objects.filter(name__icontains=query) |
             models.Event.objects.filter(category__name__icontains=query) |
             models.Event.objects.filter(place__icontains=query)
-        )
+        ).distinct()
 
         return render(request, 'search.html', {"events": events})
 
@@ -384,9 +384,13 @@ def get_user_by_username(request: HttpRequest):
     return JsonResponse({"error": "Invalid request method."}, status=405)
 
 
-def get_user_details_by_token(request: HttpRequest):
+def get_user_details_by_token(request: HttpRequest, event_id):
     if request.method == 'GET':
         token = request.headers.get('Authorization')
+        event = models.Event.objects.filter(id=event_id).first()
+
+        if not event:
+            return JsonResponse({"error": "Event doesn't exists."}, status=404)
 
         if not token:
             return JsonResponse({"error": "Authorization header is missing"}, status=403)
@@ -397,9 +401,9 @@ def get_user_details_by_token(request: HttpRequest):
         except Token.DoesNotExist:
             return JsonResponse({"error": "Invalid token."}, status=403)
 
-        if models.Planed.objects.filter(user=user).exists():
+        if models.Planed.objects.filter(user=user, event=event).exists():
             mark = "Планирую"
-        elif models.Visited.objects.filter(user=user).exists():
+        elif models.Visited.objects.filter(user=user, event=event).exists():
             mark = "Был(а)"
         else:
             mark = "Не был(а)"
