@@ -35,21 +35,21 @@ document.addEventListener('DOMContentLoaded', () => {
         header?.style.setProperty('background', '#2C2F36');
  
         // Обновить стили для фона и текста
-        backgroundContent?.style.setProperty('background', '#1B1D23'); // Фон ночной темы
-        backgroundBlock?.style.setProperty('background', '#2C2F36'); // Блок ночной темы
+        backgroundContent?.style.setProperty('background', '#1B1D23');
+        backgroundBlock?.style.setProperty('background', '#2C2F36');
         if (backgroundButton) {
             backgroundButton.style.setProperty('background', '#2979FF');
-            backgroundButton.style.setProperty('color', '#fff'); // Светлый текст на кнопке
+            backgroundButton.style.setProperty('color', '#fff');
         }
         textElements.forEach(el => {
-            el.style.setProperty('color', '#fff'); // Белый текст
+            el.style.setProperty('color', '#f0f0f0');
         });
         cards.forEach(card => {
-            card.style.setProperty('background', '#2C2F36'); // Фон для карточек в темной теме
+            card.style.setProperty('background', '#2C2F36');
         });
         // Обновить фон для формы
         if (backgroundBlock) {
-            backgroundBlock.style.setProperty('background-color', '#11141A'); // Темный фон для формы
+            backgroundBlock.style.setProperty('background-color', '#11141A');
         }
     }
 

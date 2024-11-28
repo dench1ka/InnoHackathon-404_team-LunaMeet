@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    const parts = window.location.href.split("/");
+    const event_id = parts[parts.length - 1];
     const form = document.getElementById('form');
     const commentInput = document.getElementById('commentInput');
     form.addEventListener('submit', async (event) => {
@@ -10,8 +12,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         const formData = new FormData(form);
-        const parts = window.location.href.split("/");
-        const event_id = parts[parts.length - 1];
         formData.append('event_id', event_id);
         formData.append('token', sessionStorage.getItem('authToken'));
 
@@ -36,9 +36,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
 
-
+    // mark events
     const select = document.getElementById('select');
-    const response = await fetch("user-details-by-token", {
+    const response = await fetch(`${event_id}/user-details-by-token`, {
+        method: "GET",
         headers: {
             "Authorization": sessionStorage.getItem("authToken")
         }
@@ -56,9 +57,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         const choice = select.value;
         const parts = window.location.href.split("/");
         const event_id = parts[parts.length - 1];
-        console.log(choice)
-        console.log(event_id)
-        console.log(sessionStorage.getItem("authToken"))
 
         try{
             const response = await fetch('mark-event', {

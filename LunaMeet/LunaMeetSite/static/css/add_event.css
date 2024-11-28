@@ -6,6 +6,7 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -18,13 +19,24 @@ body {
   padding: 20px;
   max-width: 600px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
+
 .theme-switcher{
-  
-position: absolute;
-top: 20px;
-right: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }
+
+.luna-meet_image{
+    margin: 10px 20px;
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+}
+
 header h1 {
   text-align: center;
   font-size: 1.5rem;

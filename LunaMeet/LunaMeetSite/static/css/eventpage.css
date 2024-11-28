@@ -11,7 +11,7 @@ body {
 }
 
 .event-page-day {
-  background: #ffffff;
+  background: white;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -22,14 +22,6 @@ body {
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
-.theme-switcher{
-  
-  position: absolute;
-  top: 20px;
-  right: 0%;
-  z-index: 1000;
-  }
 
 .frame-2 {
   display: flex;
@@ -74,7 +66,7 @@ body {
   gap: 10px;
 }
 
-.reg-block{
+.info-block{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -84,15 +76,14 @@ body {
 }
 
 .category {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 500;
   color: #333333;
 }
 
-.dd-mm-yyyy-dd-mm-yyyy {
-  font-size: 16px;
-  font-weight: 400;
-  color: #888888;
+.place {
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .list {
@@ -138,7 +129,7 @@ body {
 }
 
 .description, .plan2 {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
 }
 
@@ -153,8 +144,19 @@ body {
   display: flex;
   flex-direction: row;
   gap: 10px;
-  font-size: 14px;
+  font-size: 33px;
 }
+
+.timecods{
+    margin: 0;
+    padding: 5px 25px;
+}
+
+.timecod {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
 
 /* Комментарии */
 .comments {

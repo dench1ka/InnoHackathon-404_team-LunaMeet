@@ -175,6 +175,7 @@ header img {
   text-align: center;
   display: flex;
   flex-direction: column;
+  font-family: "Inter-SemiBold", sans-serif;
 }
 
 .image-container {
