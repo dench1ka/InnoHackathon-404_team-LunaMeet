@@ -354,16 +354,13 @@ def mark_event(request: HttpRequest):
             return JsonResponse({"error": "Invalid token."}, status=403)
 
         if mark == "Не был(а)":
-            item = models.Planed.objects.filter(user=user)
-            if item.exists():
-                item.delete()
-
-            item = models.Visited.objects.filter(user=user)
-            if item.exists():
-                item.delete()
+            models.Planed.objects.filter(user=user, event=event).delete()
+            models.Visited.objects.filter(user=user, event=event).delete()
         elif mark == "Был(а)":
+            models.Planed.objects.filter(user=user, event=event).delete()
             models.Visited.objects.create(user=user, event=event)
         elif mark == "Планирую":
+            models.Visited.objects.filter(user=user, event=event).delete()
             models.Planed.objects.create(user=user, event=event)
 
         return JsonResponse({"message": "Mark was changed."}, status=200)

@@ -50,7 +50,9 @@
             <img id="theme-icon" alt="Theme Icon" style="width: 24px; height: 24px;">
         </button>
     </div>
-    <img class="luna-meet_image" id="logo"/>
+    <a href="/">
+        <img class="luna-meet_image" id="logo"/>
+    </a>
     <div class="search-bar">
         <input type="text" placeholder="Введите текст для поиска" id="search-input"/>
         <button id="search-btn">
@@ -74,12 +76,14 @@
             {% for event in item.events %}
             <div class="card">
                 <div class="image-container">
-                    {% for photo in event.photos.all %}
-                    <img src="{{ photo.photo.url }}" alt="Card Image">
-                    {% endfor %}
+                    {% if event.photos.all %}
+                    <img src="{{ event.photos.first.photo.url }}" alt="Card Image">
+                    {% else %}
+                    <img src="{% static 'img/default_event_image.jpg' %}" alt="Default Image">
+                    {% endif %}
                 </div>
                 <div class="text-container">
-                    <a href="{% url 'eventpage' event.id %}" class="event-title">{{ event.name }}</a>
+                    <a href="{% url 'eventpage' event.id %}" class="event-title text">{{ event.name }}</a>
                     <p>
                         {{ event.first_timecode|date:"d.m.Y" }} -
                         {{ event.last_timecode|date:"d.m.Y" }}

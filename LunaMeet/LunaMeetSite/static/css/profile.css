@@ -5,6 +5,19 @@ body {
   background-color: #f5f5f5;
 }
 
+.theme-switcher{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.luna-meet_image{
+    margin: 10px 20px;
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+}
+
 .body{
     display: flex;
     flex-direction: row;

@@ -1,8 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    document.querySelector('.create-btn').addEventListener('click', function() {
-        window.location.href = 'add-event';
-    });
-
     const search_btn = document.getElementById('search-btn');
     search_btn.addEventListener('click', () => {
         const search_inp = document.getElementById('search-input');

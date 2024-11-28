@@ -45,6 +45,9 @@
 </head>
 <body>
     <div class="theme-switcher">
+        <a href="/">
+            <img class="luna-meet_image" id="logo"/>
+        </a>
         <button id="theme-toggle" class="theme-toggle">
             <img id="theme-icon" alt="Theme Icon" style="width: 24px; height: 24px;">
         </button>
@@ -62,10 +65,6 @@
                     <div class="name text">Email</div>
                     <div class="value text">{{ user.email }}</div>
                 </div>
-                <div class="field">
-                    <div class="name text">Description</div>
-                    <div class="value text">{{ user.description }}</div>
-                </div>
             </div>
         </div>
 
@@ -79,12 +78,17 @@
                 <div class="cards">
                     {% for event in planned_events %}
                     <div class="card">
-
-                        <div class="location">{{ event.location }}</div>
-                        <div class="dates">{{ event.start_date }} - {{ event.end_date }}</div>
-                        <div class="title">{{ event.name }}</div>
                         <div class="image">
-                            <img src="{{ event.image.url }}" alt="{{ event.name }}">
+                            {% if event.photos.all %}
+                            <img src="{{ event.photos.first.photo.url }}" alt="{{ event.name }}">
+                            {% else %}
+                            <img src="{% static 'img/default_event_image.jpg' %}" alt="Default Image">
+                            {% endif %}
+                        </div>
+                        <div class="text-container">
+                            <a href="{% url 'eventpage' event.id %}" class="title text">{{ event.name }}</a>
+                            <div class="dates text">{{ event.first_timecode|date:"d.m.Y" }} - {{ event.last_timecode|date:"d.m.Y" }}</div>
+                            <div class="location text">{{ event.place }}</div>
                         </div>
                         {% empty %}
                         <p class="text">No planned events</p>
