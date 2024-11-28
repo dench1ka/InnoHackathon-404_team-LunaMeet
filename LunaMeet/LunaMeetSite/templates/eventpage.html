@@ -44,13 +44,17 @@
 <div class="event-page-day text" id="block">
     <!-- Заголовок события -->
     <div class="frame-2">
-        <div class="name text">{{ event.name }}</div>
-        <div class="theme-switcher">
-            <button id="theme-toggle" class="theme-toggle">
-                <img id="theme-icon" alt="Theme Icon" style="width: 24px; height: 24px;">
-            </button>
+        <div class="top-bar">
+            <img class="luna-meet_image" id="logo" alt="Logo">
+            <div class="theme-switcher">
+                <button id="theme-toggle" class="theme-toggle">
+                    <img id="theme-icon" alt="Theme Icon" style="width: 24px; height: 24px;">
+                </button>
+            </div>
         </div>
+        <div class="name text">{{ event.name }}</div>
     </div>
+
 
     <!-- Контент события -->
     <div class="content">
@@ -65,7 +69,7 @@
             {% endif %}
         </div>
 
-        <div class="owners">
+        <div class="owners" id="owner">
             <p class="text">Организаторы:</p>
             {% for organizer in event.organizers_id.all %}
             <p class="text">{{ organizer.username }}</p>
@@ -118,7 +122,7 @@
                 </ul>
             </div>
             {% else %}
-            <p  class="text">Нет распиания.</p>
+            <p  class="text">Нет расписания.</p>
             {% endif %}
         </div>
     </div>
@@ -129,7 +133,7 @@
         <form action="" method="post" id="form">
             {% csrf_token %}
             <div class="comment-input">
-                <input type="text" placeholder="Введите комментарий..." id="commentInput" name="comment"/>
+                <input class="comment text" type="text" placeholder="Введите комментарий..." id="commentInput" name="comment"/>
                 <button class="comment-btn" id="comment-btn" type="submit">Добавить</button>
             </div>
         </form>
@@ -140,7 +144,7 @@
             <div class="user">
                 <div class="user2">{{ comment.user.username }}</div>
             </div>
-            <div class="div4">
+            <div class="div4 text" >
                 {{ comment.text }}
             </div>
         </div>
