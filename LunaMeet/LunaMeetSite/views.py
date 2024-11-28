@@ -291,7 +291,7 @@ def add_event(request: HttpRequest):
         description = request.POST.get('description')
         place = request.POST.get('place')
         category = request.POST.get('category')
-        category = models.Category.objects.get(id=category)
+        category = models.Category.objects.get(name=category)
 
         # Получаем массивы данных (организаторы и временные метки)
         organizers = request.POST.getlist('organizers[]')  # Список организаторов
