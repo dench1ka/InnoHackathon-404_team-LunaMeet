@@ -65,10 +65,10 @@
             {% endif %}
         </div>
 
-        <div class="owners">
-            <p>Organizers:</p>
+        <div class="owners" id="block">
+            <p class="text">Организаторы:</p>
             {% for organizer in event.organizers_id.all %}
-            <p>{{ organizer.username }}</p>
+            <p class="text">{{ organizer.username }}</p>
             {% empty %}
             <p class="text">Организаторов нет</p>
             {% endfor %}
