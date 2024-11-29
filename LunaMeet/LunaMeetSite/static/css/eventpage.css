@@ -99,6 +99,12 @@ body {
   color: #ffffff;
 }
 
+.select-block {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
 .select {
   font-size: 16px;
   background-color: #2979ff;

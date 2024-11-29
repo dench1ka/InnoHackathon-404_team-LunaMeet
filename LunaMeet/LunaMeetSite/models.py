@@ -86,6 +86,7 @@ class Event(models.Model):
     planed_users_id = models.ManyToManyField(User, through='Planed', related_name='planed_events')
     commented_users_id = models.ManyToManyField(User, through='Comments', related_name='commented_events')
     created_at = models.DateTimeField(auto_now=True)
+    reg_link = models.URLField(blank=True)
 
     def first_timecode(self):
         return self.time_codes.aggregate(Min('time'))['time__min']

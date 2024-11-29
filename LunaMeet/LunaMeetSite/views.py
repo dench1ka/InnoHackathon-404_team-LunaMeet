@@ -290,6 +290,7 @@ def add_event(request: HttpRequest):
         name = request.POST.get('name')
         description = request.POST.get('description')
         place = request.POST.get('place')
+        reg_link = request.POST.get('reg_link')
         category = request.POST.get('category')
         category = models.Category.objects.get(id=category)
 
@@ -305,6 +306,7 @@ def add_event(request: HttpRequest):
             name=name,
             description=description,
             place=place,
+            reg_link=reg_link,
             category=category,
         )
 
