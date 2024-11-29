@@ -4,8 +4,8 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: #f0f0f0; /* светлый фон */
+  color: #333; /* темный текст */
 }
 
 header img {
@@ -19,7 +19,7 @@ header img {
   align-items: center;
   flex-grow: 1;
   margin: 0 15px;
-  background-color: #e0e0e0;
+  background-color: #e0e0e0; /* светло-серый фон */
   padding: 5px;
   border-radius: 25px;
 }
@@ -161,7 +161,7 @@ header img {
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Автозаполнение карточек */
-  gap: 20px;
+  gap: 20px; /* Расстояние между карточками */
   margin-top: 10px;
 }
 
@@ -180,19 +180,19 @@ header img {
 
 .image-container {
   width: 100%;
-  height: 200px;
-  background-color: #ddd;
+  height: 200px; /* Высота блока изображения */
+  background-color: #ddd; /* Цвет фона по умолчанию */
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  overflow: hidden;
+  overflow: hidden; /* Обрезка изображения по границам */
 }
 
 .image-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Сохранение пропорций изображения */
 }
 
 .text-container h3 {
@@ -208,7 +208,7 @@ header img {
 }
 
 header .create-btn {
-  margin-right: 50px;
+  margin-right: 50px; /* Сместить кнопку "Создать объявление" влево */
   background-color: black;
   color: white;
   padding: 10px 20px;
