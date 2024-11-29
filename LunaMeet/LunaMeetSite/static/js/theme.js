@@ -9,16 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('header');
     const textElements = document.querySelectorAll('.text'); // Все элементы с классом текста
     const cards = document.querySelectorAll('.card');
-    // Применить тему из localStorage
-    function applyThemeFromLocalStorage() {
-        const savedTheme = localStorage.getItem('theme');
+    const owner = document.getElementById('owner');
+    const img = document.getElementById('image');
 
-        if (savedTheme === 'dark') {
-            enableDarkTheme();
-        } else {
-            enableLightTheme();
-        }
-    }
+    const comments = document.querySelectorAll('.comment')
 
     // Функция для включения тёмной темы
     function enableDarkTheme() {
@@ -37,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Обновить стили для фона и текста
         backgroundContent?.style.setProperty('background', '#1B1D23');
         backgroundBlock?.style.setProperty('background', '#2C2F36');
+        owner?.style.setProperty('background','#2C2F36');
+        img?.style.setProperty('background','#2C2F36');
         if (backgroundButton) {
             backgroundButton.style.setProperty('background', '#2979FF');
             backgroundButton.style.setProperty('color', '#fff');
@@ -64,10 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         theme?.setAttribute('src', '../static/img/Day.png');
         header?.style.setProperty('background', '#E5F3FF');
-
-        // Обновить стили для фона и текста
-        backgroundContent?.style.setProperty('background', '#FFFFFF'); // Фон дневной темы
-        backgroundBlock?.style.setProperty('background', '#E5F3FF'); // Блок дневной темы
+        backgroundContent?.style.setProperty('background', '#FFFFFF');
+        backgroundBlock?.style.setProperty('background', '#E5F3FF');
+        owner?.style.setProperty('background','#d9d9d9');
+        img?.style.setProperty('background','#d9d9d9');
         if (backgroundButton) {
             backgroundButton.style.setProperty('background', '#2979FF');
             backgroundButton.style.setProperty('color', '#fff'); // Светлый текст на кнопке

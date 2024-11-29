@@ -44,6 +44,16 @@
 <div class="event-page-day text" id="block">
     <!-- Заголовок события -->
     <div class="frame-2">
+        <div class="top-bar">
+            <a href="/">
+        <img class="luna-meet_image" id="logo"/>
+    </a>
+            <div class="theme-switcher">
+                <button id="theme-toggle" class="theme-toggle">
+                    <img id="theme-icon" alt="Theme Icon" style="width: 24px; height: 24px;">
+                </button>
+            </div>
+        </div>
         <div class="name text">{{ event.name }}</div>
         <div class="theme-switcher">
             <button id="theme-toggle" class="theme-toggle">
@@ -54,7 +64,7 @@
 
     <!-- Контент события -->
     <div class="content">
-        <div class="image">
+        <div class="image" id="image">
             <!-- Отображение картинок события -->
             {% if event.photos.all %}
             {% for photo in event.photos.all %}
