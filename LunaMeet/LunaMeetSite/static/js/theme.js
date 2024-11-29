@@ -9,8 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('header');
     const textElements = document.querySelectorAll('.text'); // Все элементы с классом текста
     const cards = document.querySelectorAll('.card');
-    const owner = document.getElementById('owner')
-    const img = document.getElementById('image')
+    const owner = document.getElementById('owner');
+    const img = document.getElementById('image');
+    const backimage = document.getElementById('backimage');
     const comments = document.querySelectorAll('.comment')
 
     // Функция для включения тёмной темы
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         backgroundContent?.style.setProperty('background', '#1B1D23');
         backgroundBlock?.style.setProperty('background', '#2C2F36');
         owner?.style.setProperty('background','#2C2F36');
+        backimage?.style.setProperty('background','#2C2F36');
         img?.style.setProperty('background','#2C2F36');
         if (backgroundButton) {
             backgroundButton.style.setProperty('background', '#2979FF');
@@ -43,7 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
         header?.style.setProperty('background', '#E5F3FF');
         backgroundContent?.style.setProperty('background', '#FFFFFF');
         backgroundBlock?.style.setProperty('background', '#E5F3FF');
-        owner?.style.setProperty('background','#d9d9d9')
+        owner?.style.setProperty('background','#d9d9d9');
+        backimagek?.style.setProperty('background','#d9d9d9');
         img?.style.setProperty('background','#d9d9d9');
         if (backgroundButton) {
             backgroundButton.style.setProperty('background', '#2979FF');
