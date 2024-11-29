@@ -83,7 +83,11 @@ document.addEventListener('DOMContentLoaded', function() {
             formData.append('timecods[]', timecodText);
         }
 
-        console.log(formData);
+        const link_pattern = /^https:\/\/docs\.google\.com\/forms\/d\/.+$/;
+        if (link_pattern.test(formData.reg_link)){;
+            showPopup("Ссылка не направляет на google форму регистрации.", false)
+            return;
+        }
 
         try {
             const response = await fetch("http://127.0.0.1:8000/api-add-event", {

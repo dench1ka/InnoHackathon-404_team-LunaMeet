@@ -58,7 +58,7 @@
             <div class="icon"></div>
             <div class="info">
                 <div class="field">
-                    <div class="name text">Name</div>
+                    <div class="name text">Имя пользователя</div>
                     <div class="value text">{{ user.username }}</div>
                 </div>
                 <div class="field">
@@ -73,7 +73,7 @@
             <!-- Planned Events -->
             <div class="block">
                 <div class="head">
-                    <div class="planned text">Planned</div>
+                    <div class="planned text">Запланированные</div>
                 </div>
                 <div class="cards">
                     {% for event in planned_events %}
@@ -91,7 +91,7 @@
                             <div class="location text">{{ event.place }}</div>
                         </div>
                         {% empty %}
-                        <p class="text">No planned events</p>
+                        <p class="text">Нет Запланированных.</p>
                         {% endfor %}
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                 <!-- Visited Events -->
                 <div class="block">
                     <div class="head">
-                        <div class="visited text">Visited</div>
+                        <div class="visited text">Посещённые</div>
                     </div>
                     <div class="cards">
                         {% for event in visited_events %}
@@ -113,7 +113,7 @@
                                 <div class="location text">{{ event.place }}</div>
                             </div>
                             {% empty %}
-                            <p class="text">No visited events</p>
+                            <p class="text">Нет Посещённых.</p>
                             {% endfor %}
                         </div>
                     </div>

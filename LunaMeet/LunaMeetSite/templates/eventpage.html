@@ -98,6 +98,15 @@
                     </select>
                 </div>
             </form>
+            <div class="reg-block">
+                {% if event.reg_link %}
+                <div>
+                    <a href="{{ event.reg_link }}" target="_blank">
+                        <button class="button">Зарегестрироваться</button>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
         </div>
     </div>
 
