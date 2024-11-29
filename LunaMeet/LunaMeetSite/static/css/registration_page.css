@@ -8,7 +8,7 @@
 html, body {
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  overflow: hidden; /* Убираем прокрутку */
 }
 
 .registration,
@@ -19,11 +19,11 @@ html, body {
 .registration {
   background: #ffffff;
   display: flex;
-  flex-direction: row;
+  flex-direction: row; /* Расположение блоков в строку */
   align-items: stretch;
   justify-content: space-between;
-  height: 100vh;
-  overflow: hidden;
+  height: 100vh; /* Высота контейнера строго равна высоте окна */
+  overflow: hidden; /* Убираем прокрутку */
   margin: 0;
 }
 
@@ -55,7 +55,7 @@ html, body {
 /* Адаптация для мобильных устройств */
 @media (max-width: 768px) {
   .registration {
-    flex-direction: column;
+    flex-direction: column; /* Вертикальное расположение блоков */
   }
 
   .image-container {
@@ -71,11 +71,11 @@ html, body {
   gap: 10px;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 50%;
-  max-width: 500px;
-  min-width: 300px;
-  margin: 0 auto;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 50%; /* Полная ширина */
+  max-width: 500px; /* Максимальная ширина */
+  min-width: 300px; /* Минимальная ширина */
+  margin: 0 auto; /* Центрируем карточку */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
 }
 
 .head {
@@ -90,9 +90,9 @@ html, body {
 }
 
 .luna-meet_image {
-  width: 150px;
-  height: auto;
-  object-fit: contain;
+  width: 150px; /* Установите ширину изображения */
+  height: auto; /* Сохраняйте пропорции изображения */
+  object-fit: contain; /* Подгоняет изображение */
 }
 
 .frame {

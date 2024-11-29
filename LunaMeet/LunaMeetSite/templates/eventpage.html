@@ -55,8 +55,12 @@
             </div>
         </div>
         <div class="name text">{{ event.name }}</div>
+        <div class="theme-switcher">
+            <button id="theme-toggle" class="theme-toggle">
+                <img id="theme-icon" alt="Theme Icon" style="width: 24px; height: 24px;">
+            </button>
+        </div>
     </div>
-
 
     <!-- Контент события -->
     <div class="content">
@@ -71,7 +75,7 @@
             {% endif %}
         </div>
 
-        <div class="owners" id="owner">
+        <div class="owners">
             <p class="text">Организаторы:</p>
             {% for organizer in event.organizers_id.all %}
             <p class="text">{{ organizer.username }}</p>
@@ -121,7 +125,7 @@
                 </ul>
             </div>
             {% else %}
-            <p  class="text">Нет расписания.</p>
+            <p  class="text">Нет распиания.</p>
             {% endif %}
         </div>
     </div>
@@ -132,7 +136,7 @@
         <form action="" method="post" id="form">
             {% csrf_token %}
             <div class="comment-input">
-                <input class="comment text" type="text" placeholder="Введите комментарий..." id="commentInput" name="comment"/>
+                <input type="text" placeholder="Введите комментарий..." id="commentInput" name="comment"/>
                 <button class="comment-btn" id="comment-btn" type="submit">Добавить</button>
             </div>
         </form>
@@ -143,7 +147,7 @@
             <div class="user">
                 <div class="user2">{{ comment.user.username }}</div>
             </div>
-            <div class="div4 text" >
+            <div class="div4">
                 {{ comment.text }}
             </div>
         </div>

@@ -18,9 +18,17 @@ document.addEventListener('DOMContentLoaded', () => {
     function enableDarkTheme() {
         document.body.classList.add('dark-theme');
         themeIcon?.setAttribute('src', '../static/img/sun.png');
-        if (logoImg) logoImg.src = '../static/img/LunaMeet_white_without_background.png';
+        
+        if (logoImg) { // Проверка на существование элемента
+            logoImg.src = '../static/img/LunaMeet_white_without_background.png';
+        }
+
         theme?.setAttribute('src', '../static/img/Night.png');
+
+
         header?.style.setProperty('background', '#2C2F36');
+ 
+        // Обновить стили для фона и текста
         backgroundContent?.style.setProperty('background', '#1B1D23');
         backgroundBlock?.style.setProperty('background', '#2C2F36');
         owner?.style.setProperty('background','#2C2F36');
@@ -29,17 +37,27 @@ document.addEventListener('DOMContentLoaded', () => {
             backgroundButton.style.setProperty('background', '#2979FF');
             backgroundButton.style.setProperty('color', '#fff');
         }
-        textElements.forEach(el => el.style.setProperty('color', '#fff'));
-        cards.forEach(card => card.style.setProperty('background', '#2C2F36'));
-        comments?.forEach(comment => comment.style.setProperty('background','#2C2F36'));
-        if (backgroundBlock) backgroundBlock.style.setProperty('background-color', '#11141A');
+        textElements.forEach(el => {
+            el.style.setProperty('color', '#f0f0f0');
+        });
+        cards.forEach(card => {
+            card.style.setProperty('background', '#2C2F36');
+        });
+        // Обновить фон для формы
+        if (backgroundBlock) {
+            backgroundBlock.style.setProperty('background-color', '#11141A');
+        }
     }
 
     // Функция для включения светлой темы
     function enableLightTheme() {
         document.body.classList.remove('dark-theme');
         themeIcon?.setAttribute('src', '../static/img/moon.png');
-        if (logoImg) logoImg.src = '../static/img/LunaMeet_without_background.png';
+        
+        if (logoImg) { // Проверка на существование элемента
+            logoImg.src = '../static/img/LunaMeet_without_background.png';
+        }
+
         theme?.setAttribute('src', '../static/img/Day.png');
         header?.style.setProperty('background', '#E5F3FF');
         backgroundContent?.style.setProperty('background', '#FFFFFF');
@@ -48,19 +66,20 @@ document.addEventListener('DOMContentLoaded', () => {
         img?.style.setProperty('background','#d9d9d9');
         if (backgroundButton) {
             backgroundButton.style.setProperty('background', '#2979FF');
-            backgroundButton.style.setProperty('color', '#fff');
+            backgroundButton.style.setProperty('color', '#fff'); // Светлый текст на кнопке
         }
-        textElements.forEach(el => el.style.setProperty('color', '#000'));
-        cards.forEach(card => card.style.setProperty('background', '#fff'));
-        comments?.forEach(comment => comment.style.setProperty('background','#d9d9d9'));
-        if (backgroundBlock) backgroundBlock.style.setProperty('background-color', '#f0f0f0');
-    }
+        textElements.forEach(el => {
+            el.style.setProperty('color', '#000'); // Чёрный текст
+        });
 
-    // Применить тему из localStorage
-    function applyThemeFromLocalStorage() {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') enableDarkTheme();
-        else enableLightTheme();
+        cards.forEach(card => {
+            card.style.setProperty('background', '#fff'); // Фон для карточек в темной теме
+        });
+
+        // Обновить фон для формы
+        if (backgroundBlock) {
+            backgroundBlock.style.setProperty('background-color', '#f0f0f0'); // Светлый фон для формы
+        }
     }
 
     // Установить тему при загрузке страницы
@@ -70,14 +89,18 @@ document.addEventListener('DOMContentLoaded', () => {
     themeToggleButton?.addEventListener('click', () => {
         const isDarkTheme = document.body.classList.toggle('dark-theme');
         localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
-        if (isDarkTheme) enableDarkTheme();
-        else enableLightTheme();
-    });
 
-    // Реакция на изменения в localStorage для синхронизации между вкладками
-    window.addEventListener('storage', (event) => {
-        if (event.key === 'theme') {
-            applyThemeFromLocalStorage();
+        // Анимация смены иконки
+        themeIcon?.classList.add('active');
+        setTimeout(() => {
+            themeIcon?.setAttribute('src', isDarkTheme ? '../static/img/sun.png' : '../static/img/moon.png');
+            themeIcon?.classList.remove('active');
+        }, 250);
+
+        if (isDarkTheme) {
+            enableDarkTheme();
+        } else {
+            enableLightTheme();
         }
     });
 });
