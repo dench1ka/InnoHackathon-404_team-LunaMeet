@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             listItem.appendChild(removeButton);
             document.getElementById('organizerList').appendChild(listItem);
-            organizerInput.value = '';  // Очищаем поле ввода после добавления
+            organizerInput.value = '';
         } else if (organizerName) {
             showPopup(result.error, false);
         }
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('images').addEventListener('change', function(event) {
         var files = event.target.files;
         var previewContainer = document.getElementById('imagePreview');
-        previewContainer.innerHTML = ''; // Очищаем предыдущее превью
+        previewContainer.innerHTML = '';
 
         for (var i = 0; i < files.length; i++) {
             var reader = new FileReader();

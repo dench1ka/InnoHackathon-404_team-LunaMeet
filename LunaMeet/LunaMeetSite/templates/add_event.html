@@ -73,7 +73,7 @@ background-color: white;
 
           <select id="eventCategory" name="category" required>
 	          {% for category in categories %}
-              <option value="{{ category.name }}">{{ category.name }}</option>
+              <option value="{{ category.id }}">{{ category.name }}</option>
 	          {% endfor %}
           </select>
         </div>
