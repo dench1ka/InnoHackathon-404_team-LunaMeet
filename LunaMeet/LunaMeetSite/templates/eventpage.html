@@ -41,18 +41,13 @@
 
 </head>
 <body>
-<div class="event-page-day text" id="block">
+<div class="event-page-day text" id="content">
     <!-- Заголовок события -->
     <div class="frame-2">
         <div class="top-bar">
             <a href="/">
-        <img class="luna-meet_image" id="logo"/>
-    </a>
-            <div class="theme-switcher">
-                <button id="theme-toggle" class="theme-toggle">
-                    <img id="theme-icon" alt="Theme Icon" style="width: 24px; height: 24px;">
-                </button>
-            </div>
+                <img class="luna-meet_image" id="logo"/>
+            </a>
         </div>
         <div class="name text">{{ event.name }}</div>
         <div class="theme-switcher">
@@ -75,7 +70,7 @@
             {% endif %}
         </div>
 
-        <div class="owners">
+        <div class="owners" id="block">
             <p class="text">Организаторы:</p>
             {% for organizer in event.organizers_id.all %}
             <p class="text">{{ organizer.username }}</p>
@@ -136,7 +131,7 @@
         <form action="" method="post" id="form">
             {% csrf_token %}
             <div class="comment-input">
-                <input type="text" placeholder="Введите комментарий..." id="commentInput" name="comment"/>
+                <input class="comment" type="text" placeholder="Введите комментарий..." id="commentInput" name="comment"/>
                 <button class="comment-btn" id="comment-btn" type="submit">Добавить</button>
             </div>
         </form>
@@ -145,9 +140,9 @@
         {% for comment in event.comments_set.all %}
         <div class="comment">
             <div class="user">
-                <div class="user2">{{ comment.user.username }}</div>
+                <div class="user2 text">{{ comment.user.username }}</div>
             </div>
-            <div class="div4">
+            <div class="div4 text">
                 {{ comment.text }}
             </div>
         </div>

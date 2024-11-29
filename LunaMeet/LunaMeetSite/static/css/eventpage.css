@@ -66,6 +66,12 @@ body {
   gap: 10px;
 }
 
+.luna-meet_image{
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+}
+
 .info-block{
     display: flex;
     flex-direction: row;
