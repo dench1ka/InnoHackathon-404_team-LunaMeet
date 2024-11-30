@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,8 +26,17 @@ SECRET_KEY = 'django-insecure-)t-bl!%-=0wwyy)(fjnc&%o+q(lmhkr^&l#joo%e%-9#=6lq*8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+AUTH_USER_MODEL = 'LunaMeetSite.User'
+
 ALLOWED_HOSTS = []
 
+# EMAIL
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = '1iunameetup1@gmail.com'
+EMAIL_HOST_PASSWORD = 'dedu forv mlmg pjbs'
 
 # Application definition
 
@@ -37,6 +47,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'LunaMeetSite',
+    'rest_framework',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -111,6 +124,9 @@ USE_I18N = True
 
 USE_TZ = True
 
+# MEDIA
+MEDIA_URL = 'media/'  # URL, через который файлы будут доступны
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Физическая директория для хранения файлов
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/

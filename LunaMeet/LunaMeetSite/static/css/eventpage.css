@@ -1,0 +1,257 @@
+/* Основные настройки */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #f9f9f9;
+}
+
+.event-page-day,
+.event-page-day * {
+  box-sizing: border-box;
+}
+
+.event-page-day {
+  background: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 20px auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.frame-2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.name {
+  font-size: 32px;
+  font-weight: 600;
+  color: #333333;
+}
+
+/* Основной контент */
+.content {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.image {
+  background: #dedede;
+  border-radius: 10px;
+  flex: 2;
+  height: 300px;
+}
+
+.owners {
+  background: #d9d9d9;
+  border-radius: 10px;
+  flex: 1;
+  height: 300px;
+  padding: 25px;
+}
+
+/* Регистрация */
+.reg {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.luna-meet_image{
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+}
+
+.info-block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 10px;
+    width: 36%;
+    max-width: 400px;
+}
+
+.category {
+  font-size: 22px;
+  font-weight: 500;
+  color: #333333;
+}
+
+.place {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.list {
+  background: #2979ff;
+  border-radius: 8px;
+  padding: 5px 10px;
+  color: #ffffff;
+}
+
+.select-block {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.select {
+  font-size: 16px;
+  background-color: #2979ff;
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Кнопка регистрации */
+.button {
+  background: #2979ff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #1a5fb8;
+}
+
+/* Информация */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.desc, .plan {
+  flex: 1;
+}
+
+.description, .plan2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.div3 {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #595959;
+}
+
+/* Список событий */
+.event {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-size: 33px;
+}
+
+.timecods{
+    margin: 0;
+    padding: 5px 25px;
+}
+
+.timecod {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+
+/* Комментарии */
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.comments2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.comment-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comment-input input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.comment-input button {
+  background: #2979ff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.event-photo {
+    width: 100%;
+    max-width: 600px; /* Ограничиваем максимальную ширину */
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.image {
+    max-width: 50%; /* Максимальная ширина изображения не больше 100% от родителя */
+    display: flex;
+    height: auto;
+    max-height: 300px;
+    justify-content: center; /* Центрируем изображение по горизонтали */
+    overflow: hidden; /* Если изображение слишком большое, скрываем лишнее */
+}
+
+.comment-btn{
+    width: 10%;
+}
+
+.image-placeholder {
+    text-align: center;
+    color: #888;
+    font-size: 18px;
+    padding: 20px;
+}
+
+.comment-input button:hover {
+  background: #1a5fb8;
+}
+
+/* Отдельный комментарий */
+.comment {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
+
+.user2 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.div4 {
+  font-size: 14px;
+  color: #444444;
+}
