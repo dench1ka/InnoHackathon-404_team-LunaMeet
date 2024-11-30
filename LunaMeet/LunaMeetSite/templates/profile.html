@@ -44,82 +44,87 @@
     </style>
 </head>
 <body>
-    <div class="theme-switcher">
-        <a href="/">
-            <img class="luna-meet_image" id="logo"/>
-        </a>
-        <button id="theme-toggle" class="theme-toggle">
-            <img id="theme-icon" alt="Theme Icon" style="width: 24px; height: 24px;">
-        </button>
+<div class="theme-switcher">
+    <a href="/">
+        <img class="luna-meet_image" id="logo"/>
+    </a>
+    <button id="theme-toggle" class="theme-toggle">
+        <img id="theme-icon" alt="Theme Icon" style="width: 24px; height: 24px;">
+    </button>
+</div>
+<div class="body">
+    <!-- Блок профиля -->
+    <div class="profily">
+        <div class="icon"></div>
+        <div class="info">
+            <div class="field">
+                <div class="name text">Имя пользователя</div>
+                <div class="value text">{{ user.username }}</div>
+            </div>
+            <div class="field">
+                <div class="name text">Email</div>
+                <div class="value text">{{ user.email }}</div>
+            </div>
+        </div>
     </div>
-    <div class="body">
-        <!-- Блок профиля -->
-        <div class="profily">
-            <div class="icon"></div>
-            <div class="info">
-                <div class="field">
-                    <div class="name text">Имя пользователя</div>
-                    <div class="value text">{{ user.username }}</div>
+
+    <!-- Блок событий -->
+    <div class="content">
+        <!-- Planned Events -->
+        <div class="block">
+            <div class="head">
+                <div class="planned text">Запланированные</div>
+            </div>
+            <div class="cards">
+                {% for event in planned_events %}
+                <div class="card">
+                    <div class="image">
+                        {% if event.photos.all %}
+                        <img src="{{ event.photos.first.photo.url }}" alt="{{ event.name }}">
+                        {% else %}
+                        <img src="{% static 'img/default_event_image.jpg' %}" alt="Default Image">
+                        {% endif %}
+                    </div>
+                    <div class="text-container">
+                        <a href="{% url 'eventpage' event.id %}" class="title text">{{ event.name }}</a>
+                        <div class="dates text">{{ event.first_timecode|date:"d.m.Y" }} - {{event.last_timecode|date:"d.m.Y" }}</div>
+                        <div class="location text">{{ event.place }}</div>
+                    </div>
                 </div>
-                <div class="field">
-                    <div class="name text">Email</div>
-                    <div class="value text">{{ user.email }}</div>
+                    {% empty %}
+                    <p class="text">Нет Запланированных.</p>
                 </div>
+                {% endfor %}
             </div>
         </div>
-
-        <!-- Блок событий -->
-        <div class="content">
-            <!-- Planned Events -->
-            <div class="block">
-                <div class="head">
-                    <div class="planned text">Запланированные</div>
-                </div>
-                <div class="cards">
-                    {% for event in planned_events %}
-                    <div class="card">
-                        <div class="image">
-                            {% if event.photos.all %}
-                            <img src="{{ event.photos.first.photo.url }}" alt="{{ event.name }}">
-                            {% else %}
-                            <img src="{% static 'img/default_event_image.jpg' %}" alt="Default Image">
-                            {% endif %}
-                        </div>
-                        <div class="text-container">
-                            <a href="{% url 'eventpage' event.id %}" class="title text">{{ event.name }}</a>
-                            <div class="dates text">{{ event.first_timecode|date:"d.m.Y" }} - {{ event.last_timecode|date:"d.m.Y" }}</div>
-                            <div class="location text">{{ event.place }}</div>
-                        </div>
-                        {% empty %}
-                        <p class="text">Нет Запланированных.</p>
-                        {% endfor %}
-                    </div>
-                </div>
-
-                <!-- Visited Events -->
-                <div class="block">
-                    <div class="head">
-                        <div class="visited text">Посещённые</div>
-                    </div>
-                    <div class="cards">
-                        {% for event in visited_events %}
-                        <div class="card">
-                            <div class="image">
-                                <img src="{{ event.photos.first.photo.url }}" alt="{{ event.name }}">
-                            </div>
-                            <div class="text-container">
-                                <a href="{% url 'eventpage' event.id %}" class="title text">{{ event.name }}</a>
-                                <div class="dates text">{{ event.first_timecode|date:"d.m.Y" }} - {{ event.last_timecode|date:"d.m.Y" }}</div>
-                                <div class="location text">{{ event.place }}</div>
-                            </div>
-                            {% empty %}
-                            <p class="text">Нет Посещённых.</p>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Visited Events -->
+    <div class="block">
+        <div class="head">
+            <div class="visited text">Посещённые</div>
         </div>
-    </div>    
+        <div class="cards">
+            {% for event in visited_events %}
+            <div class="card">
+                <div class="image">
+                    {% if event.photos.all %}
+                    <img src="{{ event.photos.first.photo.url }}" alt="Card Image">
+                    {% else %}
+                    <img src="{% static 'img/default_event_image.jpg' %}" alt="Default Image">
+                    {% endif %}
+                </div>
+                <div class="text-container">
+                    <a href="{% url 'eventpage' event.id %}" class="title text">{{ event.name }}</a>
+                    <div class="dates text">{{ event.first_timecode|date:"d.m.Y" }} - {{ event.last_timecode|date:"d.m.Y"
+                        }}
+                    </div>
+                    <div class="location text">{{ event.place }}</div>
+                </div>
+                {% empty %}
+                <p class="text">Нет Посещённых.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -101,10 +101,9 @@ body {
 }
 
 .cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: flex-start;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
 }
 
 /* Карточка события */
@@ -113,7 +112,6 @@ body {
   border-radius: 10px;
   width: 200px;
   height: 300px;
-  position: relative;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
